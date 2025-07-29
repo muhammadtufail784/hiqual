@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <title>HiQual</title>
+    <style>
+        body{
+           padding: 0 ;
+           margin: 0;
+           box-sizing: border-box;
+        }
+        .top-header {
+            background-color: #b8e6ff;
+            color: #333;
+            padding: 12px 0;
+            font-size: 14px;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        .logo-text:hover {
+            color: #333;
+            text-decoration: none;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-info i {
+            color: #666;
+            font-size: 16px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .social-icons a {
+            color: #333;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .main-nav {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #007bff;
+        }
+        .content-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        
+        /* Testimonial Carousel Styling */
+        #testimonialCarousel {
+            overflow: hidden;
+        }
+        
+        #testimonialCarousel .carousel-item {
+            transition: transform 0.8s ease-in-out;
+        }
+        
+        #testimonialCarousel:hover {
+            animation-play-state: paused;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Footer Styles */
+        .footer-link:hover {
+            color: #007bff !important;
+            text-decoration: underline !important;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon-link:hover i {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-center {
+                text-align: center;
+            }
+            
+            .footer-right {
+                text-align: center !important;
+            }
+            
+            .social-icons {
+                justify-content: center !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-center .row .col-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Footer Styles */
+        .footer-link:hover {
+            color: #007bff !important;
+            text-decoration: underline !important;
+        }
+        
+        .social-icon:hover {
+            color: #007bff !important;
+            transform: translateY(-2px);
+        }
+        
+        .back-to-top button:hover {
+            background-color: #495057 !important;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-social {
+                text-align: center !important;
+            }
+            
+            .footer-company-info {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            
+            .footer-links {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <div class="top-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <a href="#" class="logo-text">
+                      <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="width: 100px; height: auto;">
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="contact-info">
+                        <i class="bi bi-telephone"></i>
+                        <span>+442039423048</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</span>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="social-icons justify-content-end">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" style="color: #28a745;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#qualifications">Qualifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#verification">Verification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#support">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#become-atp">Become an ATP</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#about" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#our-story">Our Story</a></li>
+                            <li><a class="dropdown-item" href="#team">Our Team</a></li>
+                            <li><a class="dropdown-item" href="#careers">Careers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bespoke-awards">Bespoke Awards</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav">
+                    <a class="btn btn-primary rounded-pill px-4" href="#contact" style="background-color: #1e5fb5; border-color: #1e5fb5;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div id="carouselExampleCaptions" class="carousel slide container" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./images/homeimages/imgone.png" class="d-block w-100" alt="Professional Training">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Professional Training Excellence</h5>
+                    <p>Empowering professionals with industry-recognized certifications and comprehensive training programs.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./images/homeimages/imgtwo.webp" class="d-block w-100" alt="Quality Standards">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Quality Standards & Assessment</h5>
+                    <p>Leading the way in professional qualifications with rigorous assessment criteria and industry expertise.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./images/homeimages/imgthree.webp" class="d-block w-100" alt="Industry Recognition">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Industry Recognition</h5>
+                    <p>Nationally recognized qualifications that enhance career prospects across various industries.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+      <!-- Welcome Section -->
+      <section class="py-5 container " style="background-color: #f8f9fa; min-height: 80vh; border-radius: 50px 0px 0px  50px;" >
+          <div class="container" style=" background-image: url('./images/homeimages/imgone.png'); border-radius: 50px 0px 0px  50px !important;">
+              <div class="row align-items-center">
+                  <!-- Left Content -->
+                  <div class="col-lg-6 p-0 	">
+                      <div class="welcome-content p-5" style="background: linear-gradient(135deg, #1e5fb5 0%, #2980b9 100%); color: white; border-radius: 50px;">
+                          <h1 class="display-4 fw-bold mb-4">Welcome To HiQual UK</h1>
+                          <p class="lead mb-4">
+                              HiQual UK is a leading awarding body offering high-quality qualifications and certifications in various fields. 
+                              Our comprehensive portfolio covers business, technology, healthcare, finance, hospitality, and more.
+                          </p>
+                          <p class="mb-4">
+                              We collaborate with industry experts and employers to develop up-to date qualifications that meet industry 
+                              demands. With a focus on practical skills and rigorous quality assurance, we empower learners to succeed in 
+                              their chosen industries.
+                          </p>
+                          <p class="mb-0">
+                              Join us in unlocking your potential and achieving your professional goals with HiQual UK.
+                          </p>
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </section>
+
+
+      <!-- Gallery -->
+       <div class="container">
+           <div class="row">
+                <div class="col-lg-4 col-md-12 mb-1 mb-lg-0 px-1">
+                   <!-- Engineering and Manufacturing -->
+                   <div class="position-relative mb-1" style="overflow: hidden;">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                      class="w-100 shadow-1-strong rounded img-hover-zoom"
+                      alt="Food Category & Hospitality Management"
+                      style="height: 260px; transition: transform 0.5s ease;"
+                      onmouseover="this.style.transform='scale(1.05)'"
+                      onmouseout="this.style.transform='scale(1)'"
+                    />
+                    <div class="position-absolute top-0 start-0 w-50 h-100 d-flex align-items-start p-2" style="background: rgba(0, 0, 0, 0.342);">
+                      <div class="text-white">
+                        <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">FOOD CATEGORY & HOSPITALITY MANAGEMENT</h3>
+                        <p style="font-size: 8px;" class="small">
+                          FOOD CATERING AND HOSPITALITY MANAGEMENT COURSES. MASTER THE ART OF CULINARY EXCELLENCE AND HOSPITALITY MANAGEMENT IN OUR COURSES DESIGNED TO ELEVATE YOUR SKILLS IN THE VIBRANT WORLD OF FOOD CATERING AND HOSPITALITY
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                   <!-- Food Category & Hospitality Management -->
+                   <div class="position-relative mb-1" style="overflow: hidden;">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                      class="w-100 shadow-1-strong rounded img-hover-zoom"
+                      alt="Food Category & Hospitality Management"
+                      style="height: 260px; transition: transform 0.5s ease;"
+                      onmouseover="this.style.transform='scale(1.05)'"
+                      onmouseout="this.style.transform='scale(1)'"
+                    />
+                    <div class="position-absolute top-0 start-0 w-50 h-100 d-flex align-items-start p-2" style="background: rgba(0, 0, 0, 0.342);">
+                      <div class="text-white">
+                        <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">FOOD CATEGORY & HOSPITALITY MANAGEMENT</h3>
+                        <p style="font-size: 8px;" class="small">
+                          FOOD CATERING AND HOSPITALITY MANAGEMENT COURSES. MASTER THE ART OF CULINARY EXCELLENCE AND HOSPITALITY MANAGEMENT IN OUR COURSES DESIGNED TO ELEVATE YOUR SKILLS IN THE VIBRANT WORLD OF FOOD CATERING AND HOSPITALITY
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+
+                   <!-- Health & Safety -->
+                   <div class="position-relative mb-1" style="overflow: hidden;">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                      class="w-100 shadow-1-strong rounded img-hover-zoom"
+                      alt="Food Category & Hospitality Management"
+                      style="height: 260px; transition: transform 0.5s ease;"
+                      onmouseover="this.style.transform='scale(1.05)'"
+                      onmouseout="this.style.transform='scale(1)'"
+                    />
+                    <div class="position-absolute top-0 end-0 w-50 h-100 d-flex align-items-start p-2" style="background: rgba(0, 0, 0, 0.342);">
+                      <div class="text-white">
+                        <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">FOOD CATEGORY & HOSPITALITY MANAGEMENT</h3>
+                        <p style="font-size: 8px;" class="small">
+                          FOOD CATERING AND HOSPITALITY MANAGEMENT COURSES. MASTER THE ART OF CULINARY EXCELLENCE AND HOSPITALITY MANAGEMENT IN OUR COURSES DESIGNED TO ELEVATE YOUR SKILLS IN THE VIBRANT WORLD OF FOOD CATERING AND HOSPITALITY
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+               </div>
+
+               <div class="col-lg-4 mb-1 mb-lg-0 px-1">
+                <!-- Business Administration -->
+                <div class="position-relative mb-1" style="overflow: hidden;">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                    class="w-100 shadow-1-strong rounded"
+                    alt="Business Administration"
+                    style="height: 260px; transition: transform 0.5s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                  />
+                  <div class="position-absolute bottom-0 start-0 w-100 h-20 d-flex align-items-start p-4"
+                    style="background: rgba(0, 0, 0, 0.3);">
+                    <div class="text-white">
+                      <h3 style="font-size: 12px; font-weight: 400;" class="mb-3">BUSINESS ADMINISTRATION</h3>
+                      <p style="font-size: 8px;" class="small">
+                        DEVELOP YOUR EXPERTISE IN LEADERSHIP, MANAGEMENT, AND STRATEGY. ESSENTIAL FOR SUCCESS IN THE DYNAMIC WORLD OF BUSINESS ADMINISTRATION
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              
+                <!-- Energy & Manufacturing Industry -->
+                <div class="position-relative mb-1" style="overflow: hidden;">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                    class="w-100 shadow-1-strong rounded"
+                    alt="Energy & Manufacturing Industry"
+                    style="height: 530px; transition: transform 0.5s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                  />
+                  <div class="position-absolute bottom-0 start-0 w-100 h-30 d-flex align-items-start p-4"
+                    style="background: rgba(0, 0, 0, 0.3);">
+                    <div class="text-white">
+                      <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">ENERGY & MANUFACTURING INDUSTRY</h3>
+                      <p style="font-size: 8px;" class="small">
+                        NAVIGATE THE INTERSECTION OF ENERGY AND MANUFACTURING WITH OUR SPECIALIZED COURSES. PROVIDING INSIGHTS INTO EFFICIENT PRODUCTION PROCESSES, SUSTAINABLE ENERGY SOLUTIONS, AND INDUSTRY INNOVATION
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+              <div class="col-lg-4 mb-1 mb-lg-0 px-1">
+                <!-- Environmental Management -->
+                <div class="position-relative mb-1" style="overflow: hidden;">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+                    class="w-100 shadow-1-strong rounded"
+                    alt="Environmental Management"
+                    style="height: 530px; transition: transform 0.5s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                  />
+                  <div class="position-absolute bottom-0 start-0 w-100 h-30 d-flex align-items-start p-4"
+                    style="background: rgba(0, 0, 0, 0.342);">
+                    <div class="text-white">
+                      <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">ENVIRONMENTAL MANAGEMENT</h3>
+                      <p style="font-size: 8px;" class="small">
+                        EXPLORE SUSTAINABLE PRACTICES, CONSERVATION STRATEGIES, AND COMPLIANCE WITH ENVIRONMENTAL REGULATIONS IN OUR COURSES DESIGNED TO ADDRESS THE CRITICAL CHALLENGES OF ENVIRONMENTAL MANAGEMENT
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              
+                <!-- ISO Management -->
+                <div class="position-relative mb-1" style="overflow: hidden;">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                    class="w-100 shadow-1-strong rounded"
+                    alt="ISO Management"
+                    style="height: 260px; transition: transform 0.5s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                  />
+                  <div class="position-absolute top-0 end-0 w-50 h-100 d-flex align-items-start p-4"
+                    style="background: rgba(0, 0, 0, 0.342);">
+                    <div class="text-white">
+                      <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">ISO MANAGEMENT</h3>
+                      <p style="font-size: 8px;" class="small">
+                        BECOME PROFICIENT IN IMPLEMENTING AND MANAGING ISO-CERTIFIED SYSTEMS, ENSURING QUALITY, EFFICIENCY, AND COMPLIANCE ACROSS DIVERSE INDUSTRIES
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+           </div>
+           <!-- Gallery -->
+       </div>
+
+       <!-- Become an Assessor / Center Section -->
+       <section class="py-5" style="background-color: #f8f9fa;">
+           <div class="container">
+               <div class="row g-4">
+                   <!-- Left Column - Become an Assessor & HiQual Center -->
+                   <div class="col-lg-8 col-md-12">
+                       <div class="row g-3">
+                           <!-- Become an Assessor -->
+
+                             <!-- Become A HiQual Center -->
+                             <div class="col-12">
+                                <div class="position-relative overflow-hidden rounded-3" style="height: 300px;">
+                                    <img 
+                                        src="./images/homeimages/saftyofficerone.jpg" 
+                                        class="w-100 h-100" 
+                                        alt="Become A HiQual Center"
+                                        style="object-fit: cover; transition: transform 0.5s ease;"
+                                        onmouseover="this.style.transform='scale(1.05)'"
+                                        onmouseout="this.style.transform='scale(1)'"
+                                    />
+                                    <div class="position-absolute bottom-0 start-0 w-100 h-50 d-flex align-items-start p-4" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8));">
+                                        <div class="text-white">
+                                            <h2 class="display-6 fw-bold mb-3" style="font-size: 2rem;">Become an Assessor</h2>
+                                            <p class="lead mb-0" style="font-size: 1rem;">
+                                                Join us in our mission to drive excellence in quality standards. 
+                                                Become a HiQual UK Assessor and be a part of a dynamic team 
+                                                committed to making a positive impact on industries and 
+                                                businesses nationwide.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                           <!-- Become A HiQual Center -->
+                           <div class="col-12">
+                               <div class="position-relative overflow-hidden rounded-3" style="height: 300px;">
+                                   <img 
+                                       src="./images/homeimages/saftyofficer.jpg" 
+                                       class="w-100 h-100" 
+                                       alt="Become A HiQual Center"
+                                       style="object-fit: cover; transition: transform 0.5s ease;"
+                                       onmouseover="this.style.transform='scale(1.05)'"
+                                       onmouseout="this.style.transform='scale(1)'"
+                                   />
+                                   <div class="position-absolute bottom-0 start-0 w-100 h-50 d-flex align-items-start p-4" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8));">
+                                       <div class="text-white">
+                                           <h2 class="display-6 fw-bold mb-0" style="font-size: 2rem;">Become A HiQual Center</h2>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <!-- Right Column - Testimonial -->
+                     <div class="col-lg-4 col-md-12">
+                        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-inner">
+                                <!-- Mark Roberts Testimonial -->
+                                <div class="carousel-item active">
+                                    <div class="testimonial-card bg-whit rounded-3 shadow-sm h-100 p-4 d-flex flex-column" style="min-height: 600px;">
+                                        <!-- Profile Image -->
+                                        <div class="text-center mb-4">
+                                            <img 
+                                                src="./images/homeimages/personone.jpeg" 
+                                                class="" 
+                                                alt="Mark Roberts"
+                                                style="width: 100px; height: 100px; object-fit: cover;"
+                                            />
+                                        </div>
+                                        
+                                        <!-- Testimonial Text -->
+                                        <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                            <div class="text-center mb-4" style="background-color: #E9E9E9; padding: 2rem;">
+                                                <p class="fst-italic text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                                                    "HiQual UK has set the gold standard in awarding qualifications and certifications. 
+                                                    Their commitment to maintaining rigorous assessment criteria and staying at the forefront 
+                                                    of industry developments is truly impressive. The recognition and prestige that come with 
+                                                    HiQual UK certifications have greatly contributed to my professional success."
+                                                </p>
+                                            </div>
+                                            
+                                            <!-- Author Info -->
+                                            <div class="text-center">
+                                                <h5 class="fw-bold mb-1">Mark Roberts</h5>
+                                                <p class="text-muted small mb-0">Senior Project Manager</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sarah Johnson Testimonial -->
+                                <div class="carousel-item">
+                                    <div class="testimonial-card bg-whit rounded-3 shadow-sm h-100 p-4 d-flex flex-column" style="min-height: 600px;">
+                                        <!-- Profile Image -->
+                                        <div class="text-center mb-4">
+                                            <img 
+                                                src="./images/homeimages/pserontwo.jpg" 
+                                                class="" 
+                                                alt="Sarah Johnson"
+                                                style="width: 100px; height: 100px; object-fit: cover;"
+                                            />
+                                        </div>
+                                        
+                                        <!-- Testimonial Text -->
+                                        <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                            <div class="text-center mb-4" style="background-color: #E9E9E9; padding: 2rem;">
+                                                <p class="fst-italic text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                                                    "The comprehensive training programs offered by HiQual UK have transformed my career trajectory. 
+                                                    The practical approach to learning and the industry-relevant curriculum provided me with the skills 
+                                                    and confidence needed to excel in my field. I highly recommend their certification programs."
+                                                </p>
+                                            </div>
+                                            
+                                            <!-- Author Info -->
+                                            <div class="text-center">
+                                                <h5 class="fw-bold mb-1">Sarah Johnson</h5>
+                                                <p class="text-muted small mb-0">Health & Safety Manager</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- David Wilson Testimonial -->
+                                <div class="carousel-item">
+                                    <div class="testimonial-card bg-whit rounded-3 shadow-sm h-100 p-4 d-flex flex-column" style="min-height: 600px;">
+                                        <!-- Profile Image -->
+                                        <div class="text-center mb-4">
+                                            <img 
+                                                src="./images/homeimages/personthree.jpg" 
+                                                class="" 
+                                                alt="David Wilson"
+                                                style="width: 100px; height: 100px; object-fit: cover;"
+                                            />
+                                        </div>
+                                        
+                                        <!-- Testimonial Text -->
+                                        <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                            <div class="text-center mb-4" style="background-color: #E9E9E9; padding: 2rem;">
+                                                <p class="fst-italic text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                                                    "As a training center, partnering with HiQual UK has elevated our offerings significantly. 
+                                                    Their assessment standards are exceptional, and the support provided to centers is outstanding. 
+                                                    Our students consistently achieve excellent results and career advancement."
+                                                </p>
+                                            </div>
+                                            
+                                            <!-- Author Info -->
+                                            <div class="text-center">
+                                                <h5 class="fw-bold mb-1">David Wilson</h5>
+                                                <p class="text-muted small mb-0">Training Center Director</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Carousel Indicators -->
+                            <div class="text-center mt-3">
+                                <div class="carousel-indicators position-relative">
+                                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-dark rounded-circle" style="width: 8px; height: 8px; margin: 0 4px;" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-secondary rounded-circle" style="width: 8px; height: 8px; margin: 0 4px; opacity: 0.4;" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" class="bg-secondary rounded-circle" style="width: 8px; height: 8px; margin: 0 4px; opacity: 0.4;" aria-label="Slide 3"></button>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Arrows (Hidden for cleaner look) -->
+                            <button class="carousel-control-prev d-none" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next d-none" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+               </div>
+           </div>
+       </section>
+
+       </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #AAE4FF;" class=" text-dark py-5">
+        <div class="container">
+          <div class="row">
+            <!-- Column 1: Logo and Contact Info -->
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+              <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="height: 40px;" class="mb-3" />
+              <p>Registered in England and Wales</p>
+              <p><i class="bi bi-telephone"></i> +44 203 942 30448</p>
+              <p><i class="bi bi-envelope"></i> info@hiqual.co.uk</p>
+              <p><i class="bi bi-geo-alt"></i> Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</p>
+              <p><strong>Working Hours</strong><br>Mon - 09:00 Hrs - Fri 16:00 Hrs</p>
+            </div>
+      
+            <!-- Column 2: Quick Links -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+              <h5 class="fw-bold">QUICK LINKS</h5>
+              <ul class="list-unstyled mt-3">
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">About Us</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Contact Us</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">News and Articles</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Qualifications</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Level 2 Award in First Aid</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block">Accessibility</a></li>
+              </ul>
+            </div>
+      
+            <!-- Column 3: Other Links -->
+            <div class="col-lg-4 col-md-6">
+              <ul class="list-unstyled mt-5 mt-md-0">
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Privacy Policy</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Verification</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Become an ATP</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">BeSpoke Awards at HiQual UK</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">FAQs</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block">Terms & Conditions</a></li>
+              </ul>
+      
+              <!-- Social Icons -->
+              <div class="mt-4">
+                <a href="#" class="text-dark me-3"><i class="bi bi-facebook fs-5"></i></a>
+                <a href="#" class="text-dark me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                <a href="#" class="text-dark"><i class="bi bi-instagram fs-5"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      <!-- Copyright Footer -->
+<div style="background-color: #68CCFF;" class="text-center py-2 border-top">
+  <p class="mb-0 fw-semibold text-dark">
+    Copyright © 2025 All Rights Reserved by HiQual UK
+  </p>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <script>
+        // Enhanced Continuous Scroll for Testimonial Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialCarousel = document.getElementById('testimonialCarousel');
+            
+            if (testimonialCarousel) {
+                const carousel = new bootstrap.Carousel(testimonialCarousel, {
+                    interval: 1000,
+                    wrap: true,
+                    pause: 'hover',
+                    ride: 'carousel'
+                });
+                
+                // Pause on hover and resume on mouse leave
+                testimonialCarousel.addEventListener('mouseenter', function() {
+                    carousel.pause();
+                });
+                
+                testimonialCarousel.addEventListener('mouseleave', function() {
+                    carousel.cycle();
+                });
+                
+                // Smooth indicator updates
+                testimonialCarousel.addEventListener('slid.bs.carousel', function(event) {
+                    const indicators = testimonialCarousel.querySelectorAll('.carousel-indicators button');
+                    indicators.forEach((indicator, index) => {
+                        if (index === event.to) {
+                            indicator.classList.add('active');
+                            indicator.style.opacity = '1';
+                            indicator.classList.remove('bg-secondary');
+                            indicator.classList.add('bg-dark');
+                        } else {
+                            indicator.classList.remove('active');
+                            indicator.style.opacity = '0.4';
+                            indicator.classList.remove('bg-dark');
+                            indicator.classList.add('bg-secondary');
+                        }
+                    });
+                });
+                
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                testimonialCarousel.addEventListener('touchstart', function(e) {
+                    startX = e.changedTouches[0].screenX;
+                });
+                
+                testimonialCarousel.addEventListener('touchend', function(e) {
+                    endX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            // Swipe left - next slide
+                            carousel.next();
+                        } else {
+                            // Swipe right - previous slide
+                            carousel.prev();
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <script>
+        // Scroll to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/Hide Back to Top Button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTopBtn = document.querySelector('.back-to-top button');
+            if (backToTopBtn) {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.visibility = 'visible';
+                } else {
+                    backToTopBtn.style.opacity = '0.7';
+                    backToTopBtn.style.visibility = 'visible';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

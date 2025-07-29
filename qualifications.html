@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <title>HiQual</title>
+    
+    <style>
+        .qualifdeication-section {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .collapse-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .collapse-btn[aria-expanded="true"] i.bi-dash::before {
+            content: "\f229"; /* bi-plus icon */
+        }
+        
+        .collapse-btn[aria-expanded="false"] i.bi-dash::before {
+            content: "\f235"; /* bi-dash icon */
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <div style="background-color: #AAE4FF;" class="top-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <a href="#" class="logo-text">
+                      <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="width: 100px; height: auto;">
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="contact-info">
+                        <i class="bi bi-telephone"></i>
+                        <span>+442039423048</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</span>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="social-icons justify-content-end">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" style="color: #28a745;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#qualifications">Qualifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#verification">Verification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#support">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#become-atp">Become an ATP</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#about" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#our-story">Our Story</a></li>
+                            <li><a class="dropdown-item" href="#team">Our Team</a></li>
+                            <li><a class="dropdown-item" href="#careers">Careers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bespoke-awards">Bespoke Awards</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav">
+                    <a class="btn btn-primary rounded-pill px-4" href="#contact" style="background-color: #1e5fb5; border-color: #1e5fb5;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- 
+    <section class="position-relative d-flex align-items-center justify-content-center" 
+             style="height: 400px; background-image: url('./images/homeimages/saftyofficerone.jpg'); 
+                    background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);"></div>
+        
+        
+        <div class="position-relative text-start text-white">
+            <h1 class="display-2 fw-bold" style="text-shadow: 2px 2px 4px rgb(0, 0, 0);">Qualifications</h1>
+        </div>
+    </section> -->
+ <section class=" w-100 p-0">
+ 
+       <!-- <h1 class="fw-bold m-0" style="font-size: 2.5rem;">Qualifications</h1> -->
+       <img src="./images/qualification/qualification.png" alt="" style="width: 100%; height: 300px; object-fit: cover;">
+ 
+ </section>
+
+ <!-- Qualifications Content Section -->
+ <section class="py-5" style="background-color: #f8f9fa;">
+     <div class="container">
+         <div class="row">
+             <div class="col-12">
+                 <!-- Main Heading -->
+                 <div class="text-center mb-4">
+                     <h2 class="fw-bold text-dark mb-3" style="font-size: 2.5rem;">Qualifications offered by HiQual UK</h2>
+                     <!-- Dotted line -->
+                     <div class="d-flex justify-content-center mb-4">
+                         <div style="border-bottom: 3px dotted #6c757d; width: 80%; max-width: 600px;"></div>
+                     </div>
+                 </div>
+
+                 <!-- Description Text -->
+                 <div class="row justify-content-center">
+                     <div class="col-lg-10">
+                         <p class="text-center text-dark" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 3rem;">
+                             Welcome to HiQual UK's Qualifications page, where we take pride in offering a diverse range of high-quality programs across various fields. Our 
+                             qualifications span a wide spectrum, including Health and Safety, Business and Administration Management, Environmental Management, Oil and Gas 
+                             Industry, Fire Safety & First Aid, Food, Catering and Hospitality Management, ISO Management Systems, and Engineering and Manufacturing Industry. For 
+                             specialized services such as pipe cleaning, consider our partner rohrreinigung wien, ensuring your facilities meet the highest standards. Explore our 
+                             comprehensive qualifications and empower your journey toward professional excellence.
+                         </p>
+                     </div>
+                 </div>
+
+                 <!-- Second Section Heading -->
+                 <div class="text-center mb-4">
+                     <h3 class="fw-bold text-dark mb-3" style="font-size: 2rem;">HiQual UK Qualifications</h3>
+                     <!-- Dotted line -->
+                     <div class="d-flex justify-content-center">
+                         <div style="border-bottom: 3px dotted #6c757d; width: 70%; max-width: 500px;"></div>
+                     </div>
+                 </div>
+
+                 <!-- Qualifications List -->
+                 <div class="row justify-content-center">
+                     <div class="col-lg-8">
+                         <!-- Engineering & Manufacturing Industry Section -->
+                         <div style="border:none;" class="qualification-section  mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#engineeringCollapse" aria-expanded="false" aria-controls="engineeringCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">Engineering & Manufacturing Industry</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="engineeringCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• Level 2 Award in Retail Operations</li>
+                                         <li class="mb-2">• Level 3 Certificate in Supply Chain Practice</li>
+                                         <li class="mb-2">• Welding & Joining Technician</li>
+                                         <li class="mb-2">• Diploma in Advance Welding & Joining Technologies</li>
+                                         <li class="mb-2">• Diploma in Fundamentals of Manufacturing Processes</li>
+                                         <li class="mb-2">• Diploma in Electrical Trade</li>
+                                         <li class="mb-2">• Low & High Voltage Authorized Person</li>
+                                         <li class="mb-2">• International Diploma in Electrical Engineering Technology</li>
+                                         <li class="mb-2">• International Diploma in Mechanical Engineering Technology</li>
+                                         <li class="mb-2">• International Diploma in Civil Engineering Technology</li>
+                                         <li class="mb-2">• Process Automation & Control Optimization (PACO)</li>
+                                         <li class="mb-2">• Certified Pressure Vessel Safety Inspector</li>
+                                         <li class="mb-2">• Pressure Vessel and Boiler Safety</li>
+                                         <li class="mb-2">• Certified Quality Manager</li>
+                                         <li class="mb-2">• Certified Painting & Coating Inspector</li>
+                                         <li class="mb-2">• Level 3 Diploma in Quality Assurance & Quality Control (QA/QC - Civil)</li>
+                                         <li class="mb-2">• Level 3 Diploma in Quality Assurance & Quality Control (QA/QC - Mechanical)</li>
+                                         <li class="mb-2">• Level 3 Diploma in Quality Assurance & Quality Control (QA/QC - Electrical)</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Separator Line -->
+                         <hr class="my-4" style="border-top: 2px solid #e9ecef;">
+
+                         <!-- Environmental Management Section -->
+                         <div style="border:none;" class="qualification-section mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#environmentalCollapse" aria-expanded="false" aria-controls="environmentalCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">Environmental Management</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="environmentalCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• Level 2 Award in Climate Change Adaptation</li>
+                                         <li class="mb-2">• Level 3 Certificate in Climate Change Adaptation</li>
+                                         <li class="mb-2">• Level 2 Award in Environmental Practices & Principles</li>
+                                         <li class="mb-2">• Level 3 Certificate in Environmental Management</li>
+                                         <li class="mb-2">• Level 2 Award in Environmental Impact Assessment</li>
+                                         <li class="mb-2">• Level 3 Certificate in Environmental Sustainability</li>
+                                         <li class="mb-2">• Level 4 Diploma in Environmental Management & Compliance</li>
+                                         <li class="mb-2">• Environmental Quality Analyst</li>
+                                         <li class="mb-2">• Environmental Monitoring & Impact Assessment</li>
+                                         <li class="mb-2">• Basics of Environmental Awareness</li>
+                                         <li class="mb-2">• Environmental Protection & Management</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Separator Line -->
+                         <hr class="my-4" style="border-top: 2px solid #e9ecef;">
+
+                         <!-- Occupational Health and Safety Section -->
+                         <div style="border:none;" class="qualification-section mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#healthSafetyCollapse" aria-expanded="false" aria-controls="healthSafetyCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">Occupational Health and Safety</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="healthSafetyCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• Level 1 Award in Basic Health and Safety Awareness</li>
+                                         <li class="mb-2">• Level 2 Award in Health and Safety at Workplace</li>
+                                         <li class="mb-2">• Level 2 Award in Managing Safely</li>
+                                         <li class="mb-2">• Level 2 Award in Risk Assessment</li>
+                                         <li class="mb-2">• Level 2 Award in Manual Handling Safety</li>
+                                         <li class="mb-2">• Level 2 Award in COSHH</li>
+                                         <li class="mb-2">• Level 3 Certificate in Health and Safety at Workplace</li>
+                                         <li class="mb-2">• Level 3 Certificate in Risk Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in Occupational Health and Safety</li>
+                                         <li class="mb-2">• Level 4 Diploma in Occupational Health and Safety</li>
+                                         <li class="mb-2">• Level 5 Diploma in Occupational Health and Safety</li>
+                                         <li class="mb-2">• Level 6 Diploma in Occupational Health and Safety</li>
+                                         <li class="mb-2">• Level 4 Diploma in Occupational Health and Safety</li>
+                                         <li class="mb-2">• Level 2 Award in Confined Space Safety</li>
+                                         <li class="mb-2">• Level 2 Award in Construction Safety Standards</li>
+                                         <li class="mb-2">• Level 3 Certificate in Construction Safety</li>
+                                         <li class="mb-2">• Level 4 Diploma in Construction Project Management</li>
+                                         <li class="mb-2">• Level 1 Award in Ergonomics</li>
+                                         <li class="mb-2">• Level 2 Award in Ergonomics</li>
+                                         <li class="mb-2">• Level 2 Award in Electrical Safety</li>
+                                         <li class="mb-2">• Level 3 Certificate in Electrical Safety</li>
+                                         <li class="mb-2">• Level 2 Award in Process Safety Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in Process Safety Management</li>
+                                         <li class="mb-2">• Level 4 Diploma in Process Safety Management</li>
+                                         <li class="mb-2">• Train the Trainer</li>
+                                         <li class="mb-2">• Certified Safety Professional</li>
+                                         <li class="mb-2">• HSE Supervisor (Health, Safety & Environment)</li>
+                                         <li class="mb-2">• Certified Master Trainer</li>
+                                         <li class="mb-2">• Scaffold Towering and Code Practices</li>
+                                         <li class="mb-2">• Lifting and Rigging tools Inspector</li>
+                                         <li class="mb-2">• HAZOP Leader</li>
+                                         <li class="mb-2">• Scaffold Inspector</li>
+                                         <li class="mb-2">• Construction Safety Specialist</li>
+                                         <li class="mb-2">• Permit to Work System</li>
+                                         <li class="mb-2">• Office Ergonomics Specialist (OES)</li>
+                                         <li class="mb-2">• Occupational Health Manager</li>
+                                         <li class="mb-2">• Stress Management</li>
+                                         <li class="mb-2">• Hole Watcher</li>
+                                         <li class="mb-2">• Permit Receiver</li>
+                                         <li class="mb-2">• Incident Investigation and RCA</li>
+                                         <li class="mb-2">• Accident Investigation</li>
+                                         <li class="mb-2">• Construction Safety Management</li>
+                                         <li class="mb-2">• Defensive Driving</li>
+                                         <li class="mb-2">• Safe Driving</li>
+                                         <li class="mb-2">• Safe Excavation Expert</li>
+                                         <li class="mb-2">• General Electrical Safety</li>
+                                         <li class="mb-2">• Electrical Safety Specialist</li>
+                                         <li class="mb-2">• Job Safety Analysis</li>
+                                         <li class="mb-2">• Flagman Safety Training</li>
+                                         <li class="mb-2">• Rigging and Lifting Supervisor</li>
+                                         <li class="mb-2">• Authorized Gas Tester (AGT)</li>
+                                         <li class="mb-2">• Work at Height</li>
+                                         <li class="mb-2">• Level 2 Award in Chemical Safety at Workplace</li>
+                                         <li class="mb-2">• Job Safety Analysis</li>
+                                         <li class="mb-2">• Level 2 Award in Hazard Communication (HAZCOM)</li>
+                                         <li class="mb-2">• Certified Industrial Hygienist</li>
+                                         <li class="mb-2">• Emergency Response & Rescue</li>
+                                         <li class="mb-2">• Working Safely</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Separator Line -->
+                         <hr class="my-4" style="border-top: 2px solid #e9ecef;">
+
+                         <!-- ISO Management Systems Section -->
+                         <div style="border:none;" class="qualification-section mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#isoCollapse" aria-expanded="false" aria-controls="isoCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">ISO Management Systems</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="isoCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• ISO 9001:2015 Quality Management System</li>
+                                         <li class="mb-2">• ISO 14001:2015 Environmental Management System</li>
+                                         <li class="mb-2">• ISO 45001:2018 Occupational Health and Safety Management System</li>
+                                         <li class="mb-2">• ISO 27001:2013 Information Security Management System</li>
+                                         <li class="mb-2">• ISO 22000:2018 Food Safety Management System</li>
+                                         <li class="mb-2">• ISO 13485:2016 Medical Devices Quality Management System</li>
+                                         <li class="mb-2">• ISO 50001:2018 Energy Management System</li>
+                                         <li class="mb-2">• ISO 37001:2016 Anti-Bribery Management System</li>
+                                         <li class="mb-2">• ISO 55001:2014 Asset Management System</li>
+                                         <li class="mb-2">• ISO 20000-1:2018 IT Service Management System</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Separator Line -->
+                         <hr class="my-4" style="border-top: 2px solid #e9ecef;">
+
+                         <!-- Business and Administration Management Section -->
+                         <div style="border:none;" class="qualification-section mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#businessCollapse" aria-expanded="false" aria-controls="businessCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">Business and Administration Management</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="businessCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• Level 2 Award in Supply Chain Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in Supply Chain Management</li>
+                                         <li class="mb-2">• Level 4 Diploma in Supply Chain Management</li>
+                                         <li class="mb-2">• Level 2 Award in Customer Services</li>
+                                         <li class="mb-2">• Level 3 Certificate in Customer Support & Services</li>
+                                         <li class="mb-2">• Level 2 Award in Team Leading</li>
+                                         <li class="mb-2">• Level 2 Award in Strategic Management</li>
+                                         <li class="mb-2">• Level 2 Award in Business Administration</li>
+                                         <li class="mb-2">• Level 2 Award in Marketing Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in Marketing Management</li>
+                                         <li class="mb-2">• Level 4 Diploma in Marketing Management</li>
+                                         <li class="mb-2">• Level 2 Award in IT User Skills</li>
+                                         <li class="mb-2">• Level 3 Certificate in IT User Skills</li>
+                                         <li class="mb-2">• Level 2 Award in Business Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in Business Management</li>
+                                         <li class="mb-2">• Level 4 Diploma in Business Management</li>
+                                         <li class="mb-2">• Level 4 Diploma in Accounting & Business</li>
+                                         <li class="mb-2">• Business & Administration Manager</li>
+                                         <li class="mb-2">• Business Operations Manager</li>
+                                         <li class="mb-2">• Global Supply Chain Manager</li>
+                                         <li class="mb-2">• Digital Marketing Manager</li>
+                                         <li class="mb-2">• Level 3 Certificate in Inventory Control and Warehouse Management</li>
+                                         <li class="mb-2">• Diploma in Hospital Management & Administration</li>
+                                         <li class="mb-2">• Human Resource Development</li>
+                                         <li class="mb-2">• Professional Document Controller</li>
+                                         <li class="mb-2">• Certified Change Management Professional (CCMP)</li>
+                                         <li class="mb-2">• HSE Document & Management System</li>
+                                         <li class="mb-2">• Business and Administration Management</li>
+                                         <li class="mb-2">• Certified Project Management Professional</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Separator Line -->
+                         <hr class="my-4" style="border-top: 2px solid #e9ecef;">
+
+                         <!-- Oil & Gas Industry Section -->
+                         <div style="border:none;" class="qualification-section mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#oilGasCollapse" aria-expanded="false" aria-controls="oilGasCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">Oil & Gas Industry</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="oilGasCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• Level 2 Award in Oil & Gas Safety</li>
+                                         <li class="mb-2">• Oil Rig Safety Professional</li>
+                                         <li class="mb-2">• Level 3 Certificate in Offshore Rig Safety</li>
+                                         <li class="mb-2">• Level 3 Certificate in Oil & Gas Operational Safety</li>
+                                         <li class="mb-2">• Hydrogen Sulphide (H2S) Safety</li>
+                                         <li class="mb-2">• Level 2 Award in Ammonia Safety</li>
+                                         <li class="mb-2">• Level 3 Certificate in Ammonia Operations & Safety</li>
+                                         <li class="mb-2">• Oil & Gas Well Control and Equipment</li>
+                                         <li class="mb-2">• Fundamentals of Flow Measurement</li>
+                                         <li class="mb-2">• Authorized Gas Tester</li>
+                                         <li class="mb-2">• Health and Safety Management in Oil & Gas</li>
+                                         <li class="mb-2">• Well Site Supervisor Training</li>
+                                         <li class="mb-2">• Level 2 Award in Drilling Well Basics</li>
+                                         <li class="mb-2">• Level 3 Certificate in Drilling Well Control</li>
+                                         <li class="mb-2">• Level 2 Award in Petrochemical Safety Basics</li>
+                                         <li class="mb-2">• Level 3 Certificate in Petrochemical Safety</li>
+                                         <li class="mb-2">• Level 3 Certificate in Marine & Offshore Safety</li>
+                                         <li class="mb-2">• Well Intervention Pressure Control</li>
+                                         <li class="mb-2">• Train the Trainer – Oil &Gas</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Separator Line -->
+                         <hr class="my-4" style="border-top: 2px solid #e9ecef;">
+
+                         <!-- Food Catering, & Hospitality Management Section -->
+                         <div style="border:none;" class="qualification-section mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#foodCateringCollapse" aria-expanded="false" aria-controls="foodCateringCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">Food Catering, & Hospitality Management</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="foodCateringCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• Level 1 Award in Food Safety Basics</li>
+                                         <li class="mb-2">• Level 2 Award in General Food Safety</li>
+                                         <li class="mb-2">• Level 2 Award in Food Safety Catering</li>
+                                         <li class="mb-2">• Level 2 Award in Food Safety Manufacturing</li>
+                                         <li class="mb-2">• Level 2 Award in Food Safety Retail</li>
+                                         <li class="mb-2">• Level 2 Award in Principles of HACCP</li>
+                                         <li class="mb-2">• Level 3 Certificate in Food Safety Supervision for Catering</li>
+                                         <li class="mb-2">• Level 3 Certificate in Food Safety Supervision for Manufacturing</li>
+                                         <li class="mb-2">• Level 3 Certificate in Food Safety for Retail</li>
+                                         <li class="mb-2">• Level 4 Diploma in Food Safety Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in HACCP</li>
+                                         <li class="mb-2">• Level 3 Certificate in Hotel Management</li>
+                                         <li class="mb-2">• Level 4 Diploma in Hospitality & Hotel Management</li>
+                                         <li class="mb-2">• Level 4 Diploma in Tourism & Hospitality Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in Food Supply Chain Management</li>
+                                         <li class="mb-2">• Level 2 Award in Bakery</li>
+                                         <li class="mb-2">• Level 2 Award in Butchery</li>
+                                         <li class="mb-2">• Level 3 Diploma in Laboratory Technician</li>
+                                         <li class="mb-2">• Level 3 Certificate in Hospitality Management & Food Catering</li>
+                                         <li class="mb-2">• Level 3 Certificate in Food Safety & Hygiene</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Separator Line -->
+                         <hr class="my-4" style="border-top: 2px solid #e9ecef;">
+
+                         <!-- Fire Safety & First Aid Section -->
+                         <div style="border:none;" class="qualification-section mb-3">
+                             <div class="d-flex align-items-center mb-2" data-bs-toggle="collapse" data-bs-target="#fireSafetyCollapse" aria-expanded="false" aria-controls="fireSafetyCollapse" style="cursor: pointer;">
+                                 <button class="btn btn-outline-primary btn-sm me-3 collapse-btn" type="button" style="width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                     <i class="bi bi-dash"></i>
+                                 </button>
+                                 <h5 class="mb-0 text-primary fw-bold">Fire Safety & First Aid</h5>
+                             </div>
+                             
+                             <div class="collapse show" id="fireSafetyCollapse">
+                                 <div class="ms-5">
+                                     <ul class="list-unstyled text-muted">
+                                         <li class="mb-2">• Level 1 Award in Basic Fire Awareness</li>
+                                         <li class="mb-2">• Level 2 Award in Fire Safety</li>
+                                         <li class="mb-2">• Level 2 Award in Fire Team Member</li>
+                                         <li class="mb-2">• Level 3 Certificate in Fire Safety Management</li>
+                                         <li class="mb-2">• Level 3 Certificate in Fire Risk Assessment & Controls</li>
+                                         <li class="mb-2">• Level 4 Diploma in Fire Safety & Risk Management</li>
+                                         <li class="mb-2">• Fire Watcher</li>
+                                         <li class="mb-2">• Fire Marshall</li>
+                                         <li class="mb-2">• Fire Warden</li>
+                                         <li class="mb-2">• Fire Fighter-I (NFPA -1001)</li>
+                                         <li class="mb-2">• Certified Fire Inspector I</li>
+                                         <li class="mb-2">• Train the Trainer - Fire Safety</li>
+                                         <li class="mb-2">• Basic Life Support (BLS)</li>
+                                         <li class="mb-2">• Hospital Safety Specialist</li>
+                                         <li class="mb-2">• Level 1 Award in First Aid Basics Fire Safety & First Aid</li>
+                                         <li class="mb-2">• Level 2 Award in First Aid at Workplace Fire Safety & First Aid</li>
+                                         <li class="mb-2">• Level 2 Award in Emergency First aid at workplace Fire Safety & First Aid</li>
+                                         <li class="mb-2">• Level 2 Award in Paediatric First Aid Fire Safety & First Aid</li>
+                                         <li class="mb-2">• Level 3 Certificate in First Aid & CPR Fire Safety & First Aid</li>
+                                         <li class="mb-2">• Train the Trainer - First Aid</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+    
+ 
+
+
+
+
+
+    <!-- Footer -->
+    <footer style="background-color: #AAE4FF;" class=" text-dark py-5">
+        <div class="container">
+          <div class="row">
+            <!-- Column 1: Logo and Contact Info -->
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+              <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="height: 40px;" class="mb-3" />
+              <p>Registered in England and Wales</p>
+              <p><i class="bi bi-telephone"></i> +44 203 942 30448</p>
+              <p><i class="bi bi-envelope"></i> info@hiqual.co.uk</p>
+              <p><i class="bi bi-geo-alt"></i> Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</p>
+              <p><strong>Working Hours</strong><br>Mon - 09:00 Hrs - Fri 16:00 Hrs</p>
+            </div>
+      
+            <!-- Column 2: Quick Links -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+              <h5 class="fw-bold">QUICK LINKS</h5>
+              <ul class="list-unstyled mt-3">
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">About Us</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Contact Us</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">News and Articles</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Qualifications</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Level 2 Award in First Aid</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block">Accessibility</a></li>
+              </ul>
+            </div>
+      
+            <!-- Column 3: Other Links -->
+            <div class="col-lg-4 col-md-6">
+              <ul class="list-unstyled mt-5 mt-md-0">
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Privacy Policy</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Verification</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Become an ATP</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">BeSpoke Awards at HiQual UK</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">FAQs</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block">Terms & Conditions</a></li>
+              </ul>
+      
+              <!-- Social Icons -->
+              <div class="mt-4">
+                <a href="#" class="text-dark me-3"><i class="bi bi-facebook fs-5"></i></a>
+                <a href="#" class="text-dark me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                <a href="#" class="text-dark"><i class="bi bi-instagram fs-5"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      <!-- Copyright Footer -->
+<div style="background-color: #68CCFF;" class="text-center py-2 border-top">
+  <p class="mb-0 fw-semibold text-dark">
+    Copyright © 2025 All Rights Reserved by HiQual UK
+  </p>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <script>
+        // Collapse button icon toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapseElements = document.querySelectorAll('[data-bs-toggle="collapse"]');
+            
+            collapseElements.forEach(function(element) {
+                const target = document.querySelector(element.getAttribute('data-bs-target'));
+                const button = element.querySelector('.collapse-btn i');
+                
+                if (target) {
+                    target.addEventListener('show.bs.collapse', function() {
+                        button.className = 'bi bi-dash';
+                    });
+                    
+                    target.addEventListener('hide.bs.collapse', function() {
+                        button.className = 'bi bi-plus';
+                    });
+                }
+            });
+        });
+
+        // Enhanced Continuous Scroll for Testimonial Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialCarousel = document.getElementById('testimonialCarousel');
+            
+            if (testimonialCarousel) {
+                const carousel = new bootstrap.Carousel(testimonialCarousel, {
+                    interval: 1000,
+                    wrap: true,
+                    pause: 'hover',
+                    ride: 'carousel'
+                });
+                
+                // Pause on hover and resume on mouse leave
+                testimonialCarousel.addEventListener('mouseenter', function() {
+                    carousel.pause();
+                });
+                
+                testimonialCarousel.addEventListener('mouseleave', function() {
+                    carousel.cycle();
+                });
+                
+                // Smooth indicator updates
+                testimonialCarousel.addEventListener('slid.bs.carousel', function(event) {
+                    const indicators = testimonialCarousel.querySelectorAll('.carousel-indicators button');
+                    indicators.forEach((indicator, index) => {
+                        if (index === event.to) {
+                            indicator.classList.add('active');
+                            indicator.style.opacity = '1';
+                            indicator.classList.remove('bg-secondary');
+                            indicator.classList.add('bg-dark');
+                        } else {
+                            indicator.classList.remove('active');
+                            indicator.style.opacity = '0.4';
+                            indicator.classList.remove('bg-dark');
+                            indicator.classList.add('bg-secondary');
+                        }
+                    });
+                });
+                
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                testimonialCarousel.addEventListener('touchstart', function(e) {
+                    startX = e.changedTouches[0].screenX;
+                });
+                
+                testimonialCarousel.addEventListener('touchend', function(e) {
+                    endX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            // Swipe left - next slide
+                            carousel.next();
+                        } else {
+                            // Swipe right - previous slide
+                            carousel.prev();
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <script>
+        // Scroll to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/Hide Back to Top Button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTopBtn = document.querySelector('.back-to-top button');
+            if (backToTopBtn) {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.visibility = 'visible';
+                } else {
+                    backToTopBtn.style.opacity = '0.7';
+                    backToTopBtn.style.visibility = 'visible';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

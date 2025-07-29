@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <title>HiQual</title>
+    <style>
+        body{
+           padding: 0 ;
+           margin: 0;
+           box-sizing: border-box;
+        }
+        .top-header {
+            background-color: #b8e6ff;
+            color: #333;
+            padding: 12px 0;
+            font-size: 14px;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        .logo-text:hover {
+            color: #333;
+            text-decoration: none;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-info i {
+            color: #666;
+            font-size: 16px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .social-icons a {
+            color: #333;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .main-nav {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #007bff;
+        }
+        .content-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        
+        /* Testimonial Carousel Styling */
+        #testimonialCarousel {
+            overflow: hidden;
+        }
+        
+        #testimonialCarousel .carousel-item {
+            transition: transform 0.8s ease-in-out;
+        }
+        
+        #testimonialCarousel:hover {
+            animation-play-state: paused;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Footer Styles */
+        .footer-link:hover {
+            color: #007bff !important;
+            text-decoration: underline !important;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon-link:hover i {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-center {
+                text-align: center;
+            }
+            
+            .footer-right {
+                text-align: center !important;
+            }
+            
+            .social-icons {
+                justify-content: center !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-center .row .col-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Footer Styles */
+        .footer-link:hover {
+            color: #007bff !important;
+            text-decoration: underline !important;
+        }
+        
+        .social-icon:hover {
+            color: #007bff !important;
+            transform: translateY(-2px);
+        }
+        
+        .back-to-top button:hover {
+            background-color: #495057 !important;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-social {
+                text-align: center !important;
+            }
+            
+            .footer-company-info {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            
+            .footer-links {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <div class="top-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <a href="#" class="logo-text">
+                      <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="width: 100px; height: auto;">
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="contact-info">
+                        <i class="bi bi-telephone"></i>
+                        <span>+442039423048</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</span>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="social-icons justify-content-end">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" style="color: #28a745;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#qualifications">Qualifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#verification">Verification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#support">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#become-atp">Become an ATP</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#about" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#our-story">Our Story</a></li>
+                            <li><a class="dropdown-item" href="#team">Our Team</a></li>
+                            <li><a class="dropdown-item" href="#careers">Careers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bespoke-awards">Bespoke Awards</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav">
+                    <a class="btn btn-primary rounded-pill px-4" href="#contact" style="background-color: #1e5fb5; border-color: #1e5fb5;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        </nav>
+
+
+        <section class=" ">
+            <div  style="background-color: black; height: 250px;" class="row">
+                <div style="padding-left: 100px;" class="col-md-6 d-flex align-items-center justify-content-start ">
+                    <h1 class="text-white" style="font-size: 3rem;">Verification</h1>
+                </div>
+            </div>
+                 </div>
+     
+    <!-- Verification Content Section -->
+    <section class="py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Main Heading -->
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold mb-4" style="font-size: 2.5rem; color: #1e5fb5;">Welcome to HiQual UK Verifications</h2>
+                    </div>
+
+                    <!-- Description Text -->
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-lg-10">
+                            <p class="text-center text-dark" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                                Hiqual UK receives regular requests from employers, recruitment agencies, educational institutions, and similar organizations seeking to verify the qualifications 
+                                held by individuals. We understand the critical importance of confirming the authenticity and validity of Hiqual UK certifications to <u>ensure</u> credibility and 
+                                trustworthiness in the workplace and educational settings. As an organization committed to upholding the highest standards, we take reports of fraudulent 
+                                certificates seriously and strongly recommend that <em>learners</em> keep their documents safe to prevent any misuse.
+                            </p>
+                            
+                            <p class="text-center text-dark" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 3rem;">
+                                When it comes to verifying qualifications, Hiqual UK provides several options to facilitate the process and ensure accurate verification:
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Online Verification Section -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="verification-info bg-white rounded-3 shadow-sm p-4 mb-4">
+                                <h4 class="fw-bold mb-3" style="color: #1e5fb5;">• Online Verification:</h4>
+                                
+                                <p class="text-dark" style="font-size: 1.1rem; line-height: 1.8;">
+                                    Hiqual UK offers a secure and user-friendly online verification platform. This platform allows authorized users, such as employers or educational institutions, to 
+                                    access a comprehensive database of qualified individuals. By entering the necessary details, including the learner's name and qualification information, the 
+                                    system verifies the authenticity and validity of the qualification. The online verification tool provides a convenient and efficient way to verify Hiqual UK 
+                                    qualifications quickly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verification Form Section -->
+    <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="verification-form-card bg-light rounded-3 shadow-sm p-5">
+                        <form id="verificationForm">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label for="learnerName" class="form-label text-muted mb-2">Learner Name:</label>
+                                    <input type="text" class="form-control form-control-lg" id="learnerName" 
+                                           style="border: 2px solid #e9ecef; border-radius: 8px; padding: 15px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="credentialId" class="form-label text-muted mb-2">Credential ID:</label>
+                                    <input type="text" class="form-control form-control-lg" id="credentialId" 
+                                           style="border: 2px solid #e9ecef; border-radius: 8px; padding: 15px;">
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-lg px-5 py-3 rounded-pill text-white fw-bold" 
+                                            style="background-color: #3498db; border: none; font-size: 1.1rem;">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Verification Methods Section -->
+    <section class="py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    
+                    <!-- QR Code Verification Section -->
+                    <div class="verification-method bg-white rounded-3 shadow-sm p-4 mb-4">
+                        <h4 class="fw-bold mb-3" style="color: #1e5fb5;">• QR Code Verification:</h4>
+                        
+                        <p class="text-dark" style="font-size: 1.1rem; line-height: 1.8;">
+                            All certificates and parchments issued by Hiqual UK display a unique QR code, conveniently located in the bottom right-hand corner. This innovative feature 
+                            allows for easy verification using a smartphone or QR code scanner. By scanning the QR code, individuals and organizations can instantly verify the authenticity 
+                            of the qualification, providing reassurance and peace of mind.
+                        </p>
+                    </div>
+
+                    <!-- Direct Verification Request Section -->
+                    <div class="verification-method bg-white rounded-3 shadow-sm p-4 mb-4">
+                        <h4 class="fw-bold mb-3" style="color: #1e5fb5;">• Direct Verification Request:</h4>
+                        
+                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                            If you require verification of a qualification and do not have access to the QR code or online verification platform, you can submit a direct 
+                            verification request to Hiqual UK. Simply reach out to our dedicated verification team at <strong>verifications@hiqual.co.uk</strong>, providing relevant details such 
+                            as the learner's name, qualification details, and any available supporting documents. Our verification team will diligently review the request and 
+                            respond within a reasonable timeframe, ensuring accurate and reliable verification.
+                        </p>
+                        
+                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                            At Hiqual UK, we prioritize the security and privacy of personal information. We strictly adhere to data protection laws and regulations, ensuring that 
+                            any personal data shared during the verification process is handled securely and confidentially.
+                        </p>
+                        
+                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                            We are committed to providing prompt and accurate qualification verification services to our valued stakeholders. Our verification team diligently 
+                            reviews each request to ensure the information provided is valid and trustworthy. We understand the significance of timely verification for 
+                            employers, educational institutions, and other relevant parties, and we strive to deliver efficient and reliable verification services.
+                        </p>
+                        
+                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                            For all qualification verification requests or inquiries, please contact our dedicated verification team at <strong>verifications@hiqual.co.uk</strong>. Additionally, to 
+                            enhance our services, Hiqual UK collaborates with ghostwriter, an academic writing assistant that supports our stakeholders in preparing well-
+                            researched and accurately cited academic work. Ghostwriter's assistance is particularly beneficial in documenting the authenticity and details of 
+                            qualifications, thus providing a comprehensive service tailored to meet the needs of academic and professional settings.
+                        </p>
+                        
+                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8;">
+                            We are here to assist you and provide the necessary information to confirm the authenticity and validity of Hiqual UK qualifications.
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Verify Section -->
+    <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Main Heading -->
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold mb-4" style="font-size: 2.5rem; color: #1e5fb5;">Why verify HiQual UK Certifications?</h2>
+                    </div>
+
+                    <!-- Benefits Cards -->
+                    <div class="row g-4">
+                        <!-- Left Column Cards -->
+                        <div class="col-lg-6">
+                            <!-- Authenticity Card -->
+                            <div class="benefit-card p-4 mb-4 text-white rounded-4" style="background: linear-gradient(135deg, #52a7de 0%, #4a9ad1 100%);">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-shield-check fs-3 me-3"></i>
+                                    <h4 class="fw-bold mb-0">Authenticity</h4>
+                                </div>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
+                                    Verifying a Hiqual UK certification ensures its authenticity and guards against 
+                                    fraudulent claims. Employers and educational institutions can have confidence in 
+                                    the <u>credibility</u> of the qualifications presented by <u>individuals</u>.
+                                </p>
+                            </div>
+
+                            <!-- Compliance Card -->
+                            <div class="benefit-card p-4 mb-4 text-white rounded-4" style="background: linear-gradient(135deg, #52a7de 0%, #4a9ad1 100%);">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-clipboard-check fs-3 me-3"></i>
+                                    <h4 class="fw-bold mb-0">Compliance</h4>
+                                </div>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
+                                    Verifying Hiqual UK certifications ensures compliance with industry standards 
+                                    and regulatory requirements. It provides <u>assurance</u> that individuals possess 
+                                    the necessary skills and knowledge as recognized by Hiqual UK, a reputable 
+                                    awarding body.
+                                </p>
+                            </div>
+
+                            <!-- Due Diligence Card -->
+                            <div class="benefit-card p-4 text-white rounded-4" style="background: linear-gradient(135deg, #52a7de 0%, #4a9ad1 100%);">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-search fs-3 me-3"></i>
+                                    <h4 class="fw-bold mb-0">Due Diligence</h4>
+                                </div>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
+                                    By verifying Hiqual UK certifications, employers and educational institutions 
+                                    can demonstrate their commitment to due diligence in the hiring and selection 
+                                    process. It helps safeguard against potential risks and ensures qualified 
+                                    candidates are considered.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column Cards -->
+                        <div class="col-lg-6">
+                            <!-- Trust and Confidence Card -->
+                            <div class="benefit-card p-4 mb-4 text-white rounded-4" style="background: linear-gradient(135deg, #52a7de 0%, #4a9ad1 100%);">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-handshake fs-3 me-3"></i>
+                                    <h4 class="fw-bold mb-0">Trust and Confidence</h4>
+                                </div>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
+                                    Verification of Hiqual UK certifications fosters trust and confidence in the 
+                                    competence and capabilities of individuals. Employers can make informed 
+                                    decisions based on verified qualifications, and individuals can showcase their 
+                                    genuine achievements.
+                                </p>
+                            </div>
+
+                            <!-- Industry Recognition Card -->
+                            <div class="benefit-card p-4 text-white rounded-4" style="background: linear-gradient(135deg, #52a7de 0%, #4a9ad1 100%);">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-award fs-3 me-3"></i>
+                                    <h4 class="fw-bold mb-0">Industry Recognition</h4>
+                                </div>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
+                                    Hiqual UK certifications are widely recognized and respected within various 
+                                    industries. Verifying these certifications strengthens the reputation of 
+                                    individuals and organizations, as they align themselves with industry-relevant 
+                                    qualifications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Statement Section -->
+    <section class="py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <p class="text-center text-dark" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 3rem;">
+                        At Hiqual UK, we are dedicated to maintaining the integrity and credibility of our certifications. The Certification Verification page serves as a reliable resource for 
+                        confirming the validity of Hiqual UK qualifications, enhancing transparency, and promoting trust in the certification process.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-4" style="background-color: #a8b8c8;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center text-white">
+                        <p class="mb-0" style="font-size: 1.2rem; line-height: 1.6;">
+                            Verify your Hiqual UK certification now and join us in upholding the standards of 
+                            excellence in <u>education</u> and professional development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+           
+    <footer style="background-color: #AAE4FF;" class=" text-dark py-5">
+        <div class="container">
+          <div class="row">
+            <!-- Column 1: Logo and Contact Info -->
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+              <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="height: 40px;" class="mb-3" />
+              <p>Registered in England and Wales</p>
+              <p><i class="bi bi-telephone"></i> +44 203 942 30448</p>
+              <p><i class="bi bi-envelope"></i> info@hiqual.co.uk</p>
+              <p><i class="bi bi-geo-alt"></i> Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</p>
+              <p><strong>Working Hours</strong><br>Mon - 09:00 Hrs - Fri 16:00 Hrs</p>
+            </div>
+      
+            <!-- Column 2: Quick Links -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+              <h5 class="fw-bold">QUICK LINKS</h5>
+              <ul class="list-unstyled mt-3">
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">About Us</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Contact Us</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">News and Articles</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Qualifications</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Level 2 Award in First Aid</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block">Accessibility</a></li>
+              </ul>
+            </div>
+      
+            <!-- Column 3: Other Links -->
+            <div class="col-lg-4 col-md-6">
+              <ul class="list-unstyled mt-5 mt-md-0">
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Privacy Policy</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Verification</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">Become an ATP</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">BeSpoke Awards at HiQual UK</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block mb-1">FAQs</a></li>
+                <li><a href="#" class="text-dark text-decoration-none d-block">Terms & Conditions</a></li>
+              </ul>
+      
+              <!-- Social Icons -->
+              <div class="mt-4">
+                <a href="#" class="text-dark me-3"><i class="bi bi-facebook fs-5"></i></a>
+                <a href="#" class="text-dark me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                <a href="#" class="text-dark"><i class="bi bi-instagram fs-5"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      <!-- Copyright Footer -->
+<div style="background-color: #68CCFF;" class="text-center py-2 border-top">
+  <p class="mb-0 fw-semibold text-dark">
+    Copyright © 2025 All Rights Reserved by HiQual UK
+  </p>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</body>
+</html>
