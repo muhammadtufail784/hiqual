@@ -6,179 +6,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <title>HiQual</title>
-    <style>
-        body{
-           padding: 0 ;
-           margin: 0;
-           box-sizing: border-box;
-           font-family: "Barlow Semi Condensed", Arial, sans-serif;
-        }
-        .top-header {
-            background-color: #b8e6ff;
-            color: #333;
-            padding: 12px 0;
-            font-size: 14px;
-        }
-        .logo-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            text-decoration: none;
-        }
-        .logo-text:hover {
-            color: #333;
-            text-decoration: none;
-        }
-        .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .contact-info i {
-            color: #666;
-            font-size: 16px;
-        }
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        .social-icons a {
-            color: #333;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: #007bff;
-        }
-        
-        /* Contact Us Button Hover Effect */
-        .btn-contact-us {
-            background-color: #1e5fb5 !important;
-            border-color: #1e5fb5 !important;
-            transition: all 0.3s ease;
-            transform: translateY(0);
-        }
-        
-        .btn-contact-us:hover {
-            background-color: #0d4285 !important;
-            border-color: #0d4285 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(30, 95, 181, 0.3);
-        }
-        .main-nav {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 15px 0;
-        }
-        .nav-link {
-            color: #333;
-            font-weight: 500;
-            padding: 8px 20px;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: #007bff;
-        }
-        .content-section {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f8f9fa;
-        }
-        
-        /* Testimonial Carousel Styling */
-        #testimonialCarousel {
-            overflow: hidden;
-        }
-        
-        #testimonialCarousel .carousel-item {
-            transition: transform 0.8s ease-in-out;
-        }
-        
-        #testimonialCarousel:hover {
-            animation-play-state: paused;
-        }
-        
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
-        }
-        
-        /* Footer Styles */
-        .footer-link:hover {
-            color: #007bff !important;
-            text-decoration: underline !important;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon-link:hover i {
-            transform: translateY(-3px);
-            transition: all 0.3s ease;
-        }
-        
-        /* Responsive Footer */
-        @media (max-width: 768px) {
-            .footer-center {
-                text-align: center;
-            }
-            
-            .footer-right {
-                text-align: center !important;
-            }
-            
-            .social-icons {
-                justify-content: center !important;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .footer-center .row .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-        }
-        
-        /* Footer Styles */
-        .footer-link:hover {
-            color: #007bff !important;
-            text-decoration: underline !important;
-        }
-        
-        .social-icon:hover {
-            color: #007bff !important;
-            transform: translateY(-2px);
-        }
-        
-        .back-to-top button:hover {
-            background-color: #495057 !important;
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            .footer-social {
-                text-align: center !important;
-            }
-            
-            .footer-company-info {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-            
-            .footer-links {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-        }
-    </style>
+
 </head>
 <body>
     <!-- Top Header Bar -->
@@ -215,7 +45,7 @@
     </div>
 
     <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav style="padding: 20px 0px;" class="navbar navbar-expand-lg sticky-top  navbar-light bg-light">
         <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -224,25 +54,25 @@
             <div class="collapse navbar-collapse  " id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 container justify-content-between d-flex w-100  py-10">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home" style="font-family: Arial, sans-serif; font-size: 16px;">Home</a>
+                        <a class="nav-link active " aria-current="page" href="./home.html" style="font-family: Arial, sans-serif; font-size: 16px; color: #65BC7B;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#qualifications" style="font-family: Arial, sans-serif; font-size: 16px;">Qualifications</a>
+                        <a class="nav-link" href="./qualifications.html" style="font-family: Arial, sans-serif; font-size: 16px;">Qualifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#verification" style="font-family: Arial, sans-serif; font-size: 16px;">Verification</a>
+                        <a class="nav-link" href="./verification.html" style="font-family: Arial, sans-serif; font-size: 16px;">Verification</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#support" style="font-family: Arial, sans-serif; font-size: 16px;">Support</a>
+                        <a class="nav-link" href="./support.html" style="font-family: Arial, sans-serif; font-size: 16px;">Support</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#become-atp" style="font-family: Arial, sans-serif; font-size: 16px;">Become an ATP</a>
+                        <a class="nav-link" href="./become-an-atp.html" style="font-family: Arial, sans-serif; font-size: 16px;">Become an ATP</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#about" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: Arial, sans-serif; font-size: 16px;">
+                        <a class="nav-link dropdown-toggle" href="./about.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: Arial, sans-serif; font-size: 16px;">
                             About
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
                             <!-- <li><hr class="dropdown-divider"></li> -->
                             <li><a class="dropdown-item" href="./about.html" style="font-family: Arial, sans-serif; font-size: 16px;">About us</a></li>
                             <!-- <li><hr class="dropdown-divider"></li> -->
@@ -256,15 +86,15 @@
                             <li><a class="dropdown-item" href="./data-protection.html" style="font-family: Arial, sans-serif; font-size: 16px;">Data Protection</a></li>
                             <!-- <li><hr class="dropdown-divider"></li> -->
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./equality-diversity-inclusion.html" style="font-family: Arial, sans-serif; font-size: 16px;">Equality, Diversity, and Inclusion</a></li>
+                            <li><a class="dropdown-item" href="./Equality-diversity-and-inclusion.html" style="font-family: Arial, sans-serif; font-size: 16px;">Equality, Diversity, and Inclusion</a></li>
                             <!-- <li><hr class="dropdown-divider"></li> -->
                          </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#bespoke-awards" style="font-family: Arial, sans-serif; font-size: 16px;">Bespoke Awards</a>
+                        <a class="nav-link" href="./bespoke-awards.html" style="font-family: Arial, sans-serif; font-size: 16px;">Bespoke Awards</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link bg-primary text-white rounded-pill px-4" href="#contact" style="font-family: Arial, sans-serif; font-size: 16px;">Contact Us</a>
+                        <a class="nav-link text-white rounded-pill px-4" href="./contact-us.html" style="font-family: Arial, sans-serif; font-size: 16px; background-color: #00569E;">Contact Us</a>
                     </li>
                 </ul>
             </div>
