@@ -1,0 +1,355 @@
+
+body{
+   padding: 0 ;
+   margin: 0;
+   box-sizing: border-box;
+   font-family: "Barlow Semi Condensed", Arial, sans-serif;
+}
+.top-header {
+    background-color: #b8e6ff;
+    color: #333;
+    padding: 12px 0;
+    font-size: 14px;
+}
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+.logo-text:hover {
+    color: #333;
+    text-decoration: none;
+}
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.contact-info i {
+    color: #666;
+    font-size: 16px;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.social-icons a {
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: #007bff;
+}
+.main-nav {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 8px 20px;
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #007bff;
+}
+.content-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+.dropdown-menu.show {
+display: block;
+border: none;
+border-radius: 0;
+}
+
+/* Testimonial Carousel Styling */
+#testimonialCarousel {
+    overflow: hidden;
+}
+
+#testimonialCarousel .carousel-item {
+    transition: transform 0.8s ease-in-out;
+}
+
+#testimonialCarousel:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+/* Footer Styles */
+.footer-link:hover {
+    color: #007bff !important;
+    text-decoration: underline !important;
+    transition: all 0.3s ease;
+}
+
+.social-icon-link:hover i {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+/* Custom Hover Classes */
+.hover-bg-primary:hover {
+    background-color: #00569E !important;
+    transition: all 0.3s ease;
+    
+}
+
+.hover-text-white:hover {
+    color: white !important;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.hover-rounded-full:hover {
+    border-radius: 50px !important;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-center {
+        text-align: center;
+    }
+    
+    .footer-right {
+        text-align: center !important;
+    }
+    
+    .social-icons {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-center .row .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Footer Styles */
+.footer-link:hover {
+    color: #007bff !important;
+    text-decoration: underline !important;
+}
+
+.social-icon:hover {
+    color: #007bff !important;
+    transform: translateY(-2px);
+}
+
+.back-to-top button:hover {
+    background-color: #495057 !important;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-social {
+        text-align: center !important;
+    }
+    
+    .footer-company-info {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-links {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+
+
+
+
+body{
+   padding: 0 ;
+   margin: 0;
+   box-sizing: border-box;
+   font-family: "Barlow Semi Condensed", Arial, sans-serif;
+}
+.top-header {
+    background-color: #b8e6ff;
+    color: #333;
+    padding: 12px 0;
+    font-size: 14px;
+}
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+.logo-text:hover {
+    color: #333;
+    text-decoration: none;
+}
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.contact-info i {
+    color: #666;
+    font-size: 16px;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.social-icons a {
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: #007bff;
+}
+
+/* Contact Us Button Hover Effect */
+.btn-contact-us {
+    background-color: #1e5fb5 !important;
+    border-color: #1e5fb5 !important;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.btn-contact-us:hover {
+    background-color: #0d4285 !important;
+    border-color: #0d4285 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(30, 95, 181, 0.3);
+}
+.main-nav {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 8px 20px;
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #007bff;
+}
+.content-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+/* Testimonial Carousel Styling */
+#testimonialCarousel {
+    overflow: hidden;
+}
+
+#testimonialCarousel .carousel-item {
+    transition: transform 0.8s ease-in-out;
+}
+
+#testimonialCarousel:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+/* Footer Styles */
+.footer-link:hover {
+    color: #007bff !important;
+    text-decoration: underline !important;
+    transition: all 0.3s ease;
+}
+
+.social-icon-link:hover i {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-center {
+        text-align: center;
+    }
+    
+    .footer-right {
+        text-align: center !important;
+    }
+    
+    .social-icons {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-center .row .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Footer Styles */
+.footer-link:hover {
+    color: #007bff !important;
+    text-decoration: underline !important;
+}
+
+.social-icon:hover {
+    color: #007bff !important;
+    transform: translateY(-2px);
+}
+
+.back-to-top button:hover {
+    background-color: #495057 !important;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-social {
+        text-align: center !important;
+    }
+    
+    .footer-company-info {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-links {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
