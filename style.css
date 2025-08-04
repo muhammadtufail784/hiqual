@@ -69,7 +69,7 @@ body{
 }
 
 .content-section {
-    min-height: 80vh;
+    /* min-height: 80vh; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,6 +162,14 @@ body{
 .contact-hero-banner {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                 url('https://hiqual.co.uk/wp-content/uploads/2023/09/contact-us-4193523_1920-e1695375460427.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+}
+.contact-hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('./images/homeimages/gym.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -491,3 +499,101 @@ textarea.form-control-custom {
         gap: 5px;
     }
 }
+
+
+.section-title {
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #afafaf;
+  text-align: center;
+}
+.section {
+  background-color: #333645;
+  padding: 15px 15px;
+}
+.section h3 {
+  color: #ffffff;
+}
+.section p, .section li {
+  color: #7E7888;
+}
+.section hr {
+  border-top: 2px solid #999;
+  max-width: 300px;
+  margin: 1rem auto;
+}
+
+.nav-tabs .nav-link {
+    font-weight: bold;
+    color: #000;
+    border: none;
+    border-bottom: 3px solid transparent;
+  }
+  .nav-tabs .nav-link.active {
+    color: #129e76;
+    border-bottom: 3px solid #129e76;
+    background-color: #fff;
+  }
+  .tab-pane {
+    background-color: #eff4f2;
+  }
+  .tab-content {
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+  .tab-image {
+    width: 300px;
+    height: auto;
+  }
+  .list-columns {
+    columns: 2;
+  }
+
+
+
+
+  .nav-tabs .nav-link {
+    font-weight: bold;
+    color: #000;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: #fff;
+    padding: 20px;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #129e76;
+    border-bottom: 3px solid #129e76;
+  }
+
+  .tab-pane {
+    background-color: #eff4f2;
+    padding: 40px 30px;
+  }
+
+  .tab-content {
+    border: 1px solid #e4e4e4;
+    border-top: none;
+  }
+
+  .tab-image {
+    width: 300px;
+    height: auto;
+    margin-right: 30px;
+  }
+
+  ol.split-columns {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    padding-left: 1rem;
+  }
+
+  .tab-text {
+    color: #555;
+  }
