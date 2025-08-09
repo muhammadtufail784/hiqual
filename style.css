@@ -171,9 +171,9 @@ body{
 }
 
 /* Contact Hero Banner Styles */
-.contact-hero-banner {
+.contact-hero-bannerr {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://hiqual.co.uk/wp-content/uploads/2023/09/contact-us-4193523_1920-e1695375460427.jpg');
+                url('./images/homeimages/contact.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -544,7 +544,9 @@ textarea.form-control-custom {
     font-weight: bold;
     color: #000;
     border: none;
+
     border-bottom: 3px solid transparent;
+    
   }
   .nav-tabs .nav-link.active {
     color: #129e76;
@@ -581,6 +583,7 @@ textarea.form-control-custom {
   .nav-tabs .nav-link.active {
     color: #129e76;
     border-bottom: 3px solid #129e76;
+
   }
 
   .tab-pane {
