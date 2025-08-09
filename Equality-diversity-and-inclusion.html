@@ -149,12 +149,17 @@
       #tabNav .nav-link.active {
         background-color: #EFF4F2 !important;
         border-radius: 0 !important;
-        border-top: 3px solid #139E76 !important;
+        border-top: 3px solid #EFF4F2 !important;
         color: #139E76 !important;
       }
       #tabNav {
         margin-bottom: 0 !important;
         border-bottom: none !important;
+        gap: 0 !important;
+      }
+      #tabNav .nav-item {
+        margin: 0 !important;
+        padding: 0 !important;
       }
       .tab-content {
         margin-top: 0 !important;
@@ -165,9 +170,9 @@
         border-bottom: none !important;
       }
     </style>
-    <ul class="nav nav-tabs d-flex justify-content-center w-100" id="tabNav" role="tablist">
+    <ul class="nav nav-tabs d-flex justify-content-center  w-100" style="margin-bottom: -10px!important; z-index: -1;" id="tabNav" role="tablist">
       <li class="nav-item col-4" role="presentation">
-        <button class="nav-link w-100" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">
+        <button class="nav-link active w-100" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">
           <i class="fas fa-calendar-week me-2"></i> Our Commitment:
         </button>
       </li>
@@ -184,7 +189,7 @@
     </ul>
   
     <!-- Tab panes -->
-    <div class="tab-content">
+    <div class="tab-content" style="z-index: 10!important;">
       <!-- Tab 1 -->
       <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
         <div class="row">
