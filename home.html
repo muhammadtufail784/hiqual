@@ -1,690 +1,842 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <title>HiQual</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HiQual UK</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --hq-navy: #0a3d6e;
+      --hq-blue: #0d5ba8;
+      --hq-accent: #1a7fd4;
+      --hq-light-blue: #e8f2fb;
+      --hq-text: #333333;
+      --hq-muted: #5a6578;
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      color: var(--hq-text);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Headings — Poppins */
+    h1, h2, h3, h4, h5, h6,
+    .hero-title,
+    .section-title,
+    .feature-col h6,
+    .qual-card-body h5,
+    .news-card-body h6,
+    .stat-item h2,
+    .about-badge h6,
+    footer.site-footer h5 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .section-title { letter-spacing: -0.02em; }
+    .hero-title { letter-spacing: -0.03em; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--hq-navy);
+      color: rgba(255,255,255,.88);
+      font-size: .78rem;
+      font-weight: 500;
+      padding: 8px 0;
+    }
+    .topbar .topbar-inner {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .topbar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .topbar i { font-size: .85rem; opacity: .9; }
+
+    /* ── NAVBAR ── */
+    .site-nav {
+      background: #fff;
+      box-shadow: 0 1px 12px rgba(0,0,0,.06);
+      padding: 14px 0;
+    }
+    .site-nav .navbar-brand img { height: 46px; width: auto; }
+    .site-nav .nav-link {
+      font-weight: 600;
+      font-size: .82rem;
+      color: var(--hq-text) !important;
+      padding: .4rem .55rem !important;
+      white-space: nowrap;
+    }
+    .site-nav .nav-link:hover,
+    .site-nav .nav-link.active {
+      color: var(--hq-accent) !important;
+    }
+    .site-nav .nav-link.active {
+      border-bottom: 2px solid var(--hq-accent);
+      padding-bottom: calc(.4rem - 2px) !important;
+    }
+    .site-nav .dropdown-toggle::after { margin-left: .25em; vertical-align: .15em; }
+    .btn-atp-login {
+      background: var(--hq-blue);
+      color: #fff !important;
+      font-weight: 700;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      padding: .55rem 1.25rem;
+      border-radius: 50px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .btn-atp-login:hover { background: var(--hq-accent); color: #fff; }
+
+    /* ── HERO ── */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(105deg, #eef4fb 0%, #f6f9fc 45%, #dceaf7 100%);
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 58%;
+      height: 100%;
+      background: url('./images/homeimages/hiqual-uk-banner.jpg') center right / cover no-repeat;
+      opacity: .35;
+      mask-image: linear-gradient(to left, rgba(0,0,0,.9) 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,.9) 40%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; padding: 70px 0 90px; }
+    .hero-welcome {
+      font-size: .95rem;
+      font-weight: 500;
+      color: #222;
+      margin-bottom: 6px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0;
+    }
+    .hero-title .brand { color: var(--hq-navy); }
+    .hero-title .uk { color: var(--hq-accent); }
+    .hero-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--hq-blue);
+      border-radius: 2px;
+      margin: 16px 0;
+    }
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--hq-navy);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .hero-desc {
+      color: var(--hq-muted);
+      font-size: .92rem;
+      line-height: 1.65;
+      max-width: 420px;
+      margin-bottom: 28px;
+    }
+    .btn-hero-primary {
+      background: var(--hq-blue);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: .7rem 1.6rem;
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s;
+    }
+    .btn-hero-primary:hover { background: var(--hq-accent); color: #fff; }
+    .btn-hero-outline {
+      background: #fff;
+      color: var(--hq-blue);
+      border: 2px solid var(--hq-blue);
+      border-radius: 50px;
+      padding: .65rem 1.5rem;
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .2s;
+    }
+    .btn-hero-outline:hover {
+      background: var(--hq-blue);
+      color: #fff;
+    }
+    .hero-graphic {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 40px 0 20px;
+    }
+    .hero-graphic img {
+      max-width: 100%;
+      width: 420px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* ── FEATURES BAR ── */
+    .features-wrap {
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 20px;
+    }
+    .features-bar {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 32px rgba(0, 26, 65, 0.08);
+      padding: 8px 0;
+    }
+    .feature-col {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      padding: 26px 28px;
+      border-right: 1px solid #e8edf3;
+      height: 100%;
+    }
+    .feature-col:last-child { border-right: none; }
+    .feature-icon-wrap {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      border-radius: 50%;
+      background: #0056b3;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .feature-icon-wrap--navy {
+      background: #001a41;
+    }
+    .feature-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .feature-col h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .95rem;
+      color: #001a41;
+      margin: 0 0 6px;
+      line-height: 1.3;
+    }
+    .feature-col p {
+      font-family: var(--font-body);
+      font-size: .875rem;
+      font-weight: 400;
+      color: #4a5568;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ── SECTION COMMON ── */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--hq-accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.95rem);
+      font-weight: 700;
+      color: var(--hq-navy);
+      line-height: 1.25;
+      margin-bottom: 0;
+    }
+    .section-divider {
+      width: 42px;
+      height: 3px;
+      background: var(--hq-blue);
+      border-radius: 2px;
+      margin: 14px 0 22px;
+    }
+    .btn-section {
+      background: var(--hq-blue);
+      color: #fff;
+      border-radius: 50px;
+      padding: .65rem 1.5rem;
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s;
+    }
+    .btn-section:hover { background: var(--hq-accent); color: #fff; }
+    .link-circle {
+      font-weight: 700;
+      font-size: .88rem;
+      color: var(--hq-blue);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .link-circle:hover { color: var(--hq-accent); }
+    .link-circle .circle-arrow {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--hq-blue);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      transition: all .2s;
+    }
+    .link-circle:hover .circle-arrow {
+      background: var(--hq-blue);
+      color: #fff;
+    }
+
+    /* ── ABOUT ── */
+    .about-section { padding: 70px 0 80px; }
+    .about-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .about-img-wrap > img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 28px;
+      right: 28px;
+      background: var(--hq-blue);
+      color: #fff;
+      border-radius: 10px;
+      padding: 18px 22px;
+      max-width: 210px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    }
+    .about-badge i { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+    .about-badge h6 {
+      font-weight: 600;
+      font-size: .9rem;
+      line-height: 1.3;
+      margin: 0 0 6px;
+    }
+    .about-badge p {
+      font-size: .72rem;
+      opacity: .9;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* ── STATS ── */
+    .stats-section {
+      background: linear-gradient(135deg, #0d5ba8 0%, #0a3d6e 100%);
+      padding: 56px 0;
+    }
+    .stat-item { text-align: center; color: #fff; padding: 10px; }
+    .stat-icon {
+      width: 64px;
+      height: 64px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.5rem;
+    }
+    .stat-item h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1;
+    }
+    .stat-item .stat-name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: .95rem;
+      margin: 8px 0 4px;
+    }
+    .stat-item .stat-sub {
+      font-size: .78rem;
+      opacity: .75;
+      margin: 0;
+    }
+
+    /* ── QUALIFICATIONS ── */
+    .qualifications-section {
+      padding: 80px 0;
+      background: #f7fafd;
+    }
+    .qual-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: visible;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+      height: 100%;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .qual-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.1);
+    }
+    .qual-card-img {
+      position: relative;
+      height: 195px;
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+    }
+    .qual-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .qual-card-icon {
+      position: absolute;
+      bottom: -22px;
+      left: 20px;
+      width: 46px;
+      height: 46px;
+      background: var(--hq-light-blue);
+      border: 3px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--hq-blue);
+      font-size: 1.1rem;
+      z-index: 2;
+    }
+    .qual-card-body {
+      padding: 32px 20px 22px;
+    }
+    .qual-card-body h5 {
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--hq-navy);
+      margin-bottom: 10px;
+    }
+    .qual-card-body p {
+      font-size: .8rem;
+      color: var(--hq-muted);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .explore-link {
+      font-weight: 700;
+      font-size: .85rem;
+      color: var(--hq-accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .explore-link:hover { color: var(--hq-navy); }
+
+    /* ── NEWS ── */
+    .news-section { padding: 80px 0; }
+    .news-intro {
+      padding-right: 1rem;
+    }
+    .news-intro .section-title {
+      font-size: clamp(1.75rem, 2.5vw, 2.15rem);
+      margin-bottom: 0;
+    }
+    .news-intro .link-circle {
+      margin-top: 1.75rem;
+      font-size: .9rem;
+    }
+    .news-card {
+      display: flex;
+      gap: 14px;
+      align-items: stretch;
+      height: 100%;
+    }
+    .news-card-img {
+      width: 108px;
+      height: 108px;
+      min-width: 108px;
+      border-radius: 15px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .news-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+      padding: 2px 0;
+    }
+    .news-date {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      font-weight: 500;
+      color: #8a94a6;
+      margin: 0 0 8px;
+    }
+    .news-card-body h6 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--hq-navy);
+      line-height: 1.4;
+      margin: 0 0 12px;
+      flex: 1;
+    }
+    .news-card .link-circle {
+      font-size: .85rem;
+      font-weight: 600;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .news-card .circle-arrow {
+      width: 24px;
+      height: 24px;
+      font-size: .65rem;
+    }
+
+    /* ── FOOTER ── */
+    footer.site-footer {
+      background: #aae4ff;
+      color: #333;
+      padding: 48px 0 24px;
+    }
+    footer.site-footer h5 {
+      font-weight: 800;
+      font-size: .95rem;
+    }
+    footer.site-footer a {
+      color: #333;
+      font-weight: 600;
+      font-size: .9rem;
+      text-decoration: none;
+    }
+    footer.site-footer a:hover { color: var(--hq-blue); }
+    .footer-copy {
+      background: #68ccff;
+      text-align: center;
+      padding: 12px;
+      font-weight: 600;
+      font-size: .88rem;
+      color: #222;
+    }
+
+    @media (max-width: 991px) {
+      .hero-section::before { width: 100%; opacity: .2; }
+      .features-bar .col-sm-6:nth-child(odd) .feature-col {
+        border-right: none;
+      }
+      .features-bar .col-sm-6:nth-child(-n+2) .feature-col {
+        border-bottom: 1px solid #e8edf3;
+      }
+      .feature-col {
+        padding: 22px 20px;
+      }
+      .site-nav .navbar-nav { gap: 4px; }
+    }
+    @media (max-width: 575px) {
+      .features-bar .col-sm-6 .feature-col {
+        border-right: none;
+        border-bottom: 1px solid #e8edf3;
+      }
+      .features-bar .col-sm-6:last-child .feature-col {
+        border-bottom: none;
+      }
+    }
+    @media (max-width: 767px) {
+      .topbar .topbar-inner { justify-content: center; }
+      .hero-content { padding: 50px 0 70px; }
+      .about-img-wrap > img { height: 280px; }
+      .news-intro { margin-bottom: 1.5rem; padding-right: 0; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Top Header Bar -->
-    <div class="top-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3">
-                    <a href="#" class="logo-text">
-                      <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="width: 100px; height: auto;">
-                    </a>
-                </div>
-                <div class="col-lg-3">
-                    <div class="contact-info">
-                        <i class="bi bi-telephone"></i>
-                        <span>+442039423048</span>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info">
-                        <i class="bi bi-geo-alt"></i>
-                        <span>Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</span>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="social-icons justify-content-end">
-                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" title="Twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <span><i class="bi bi-telephone-fill"></i> +44 2039 423048</span>
+        <span><i class="bi bi-geo-alt-fill"></i> Suite 2999, 34-35 Hatton Garden, London, EC1N 8DX</span>
+      </div>
     </div>
+  </div>
 
-    <!-- Main Navigation -->
-    <nav style="padding: 20px 0px;" class="navbar navbar-expand-lg sticky-top  navbar-light bg-light">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0 container justify-content-between d-flex w-100  py-10">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="./home.html" style="font-family: Arial, sans-serif; font-size: 16px; color: #65BC7B;">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./qualifications.html" style="font-family: Arial, sans-serif; font-size: 16px;">Qualifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./verification.html" style="font-family: Arial, sans-serif; font-size: 16px;">Verification</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./support.html" style="font-family: Arial, sans-serif; font-size: 16px;">Support</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./become-an-atp.html" style="font-family: Arial, sans-serif; font-size: 16px;">Become an ATP</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: Arial, sans-serif; font-size: 16px;">
-                            About
-                        </a>
-                        <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><a class="dropdown-item" href="./about.html" style="font-family: Arial, sans-serif; font-size: 16px;">About us</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./privacy-policy.html" style="font-family: Arial, sans-serif; font-size: 16px;">Privacy Policy</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./environmental-policy.html" style="font-family: Arial, sans-serif; font-size: 16px;">Environmental Policy</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./data-protection.html" style="font-family: Arial, sans-serif; font-size: 16px;">Data Protection</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./Equality-diversity-and-inclusion.html" style="font-family: Arial, sans-serif; font-size: 16px;">Equality, Diversity, and Inclusion</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./bespoke-awards.html" style="font-family: Arial, sans-serif; font-size: 16px;">Bespoke Awards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white rounded-pill px-4" href="./contact-us.html" style="font-family: Arial, sans-serif; font-size: 16px; background-color: #00569E;">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content Section -->
-    <div id="carouselExampleCaptions" class="carousel slide container " data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="./images/homeimages/imgone.png" class="d-block w-100" alt="Professional Training">
-                <!-- <div class="carousel-caption d-none d-md-block">
-                    <h5>Professional Training Excellence</h5>
-                    <p>Empowering professionals with industry-recognized certifications and comprehensive training programs.</p>
-                </div> -->
-            </div>
-            <div class="carousel-item">
-                <img src="./images/homeimages/imgtwo.webp" class="d-block w-100" alt="Quality Standards">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Quality Standards & Assessment</h5>
-                    <p>Leading the way in professional qualifications with rigorous assessment criteria and industry expertise.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="./images/homeimages/imgthree.webp" class="d-block w-100" alt="Workplace Wellness Programs">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: #4169E1; font-weight: semibold; font-size: 2rem; margin-bottom: 20px;">SAFE & SECURE</h5>
-                    <h2 style="color: white; font-weight: bold; font-size: 2.5rem; margin-bottom: 20px;">WORKPLACE WELLNESS <br> PROGRAMS</h2>
-                    <p style="color: white; font-size: 18px; font-weight: 500;">EQUIP YOUR TEAM WITH ESSENTIAL RESPONSE SKILLS, PRIORITISE EMPLOYEES WELL BEING FOR A PRODUCTIVE & HEALTHY WORKPLACE</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+  <nav class="site-nav navbar navbar-expand-xl sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="./home.html"><img src="./images/homeimages/logo.png" alt="HiQual UK"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="./home.html">Home</a></li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Qualifications</a><ul class="dropdown-menu border-0 shadow-sm"><li><a class="dropdown-item" href="./qualifications.html">All Qualifications</a></li></ul></li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Verification</a><ul class="dropdown-menu border-0 shadow-sm"><li><a class="dropdown-item" href="./verification.html">Certificate Verification</a></li></ul></li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Support</a><ul class="dropdown-menu border-0 shadow-sm"><li><a class="dropdown-item" href="./support.html">Support Centre</a></li><li><a class="dropdown-item" href="./faq.html">FAQs</a></li></ul></li>
+          <li class="nav-item"><a class="nav-link" href="./become-an-atp.html">Become an ATP</a></li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About</a><ul class="dropdown-menu border-0 shadow-sm"><li><a class="dropdown-item" href="./about.html">About Us</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="./privacy-policy.html">Privacy Policy</a></li><li><a class="dropdown-item" href="./environmental-policy.html">Environmental Policy</a></li><li><a class="dropdown-item" href="./data-protection.html">Data Protection</a></li><li><a class="dropdown-item" href="./Equality-diversity-and-inclusion.html">Equality, Diversity &amp; Inclusion</a></li></ul></li>
+          <li class="nav-item"><a class="nav-link" href="#">News &amp; Articles</a></li>
+          <li class="nav-item"><a class="nav-link" href="./bespoke-awards.html">Bespoke Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact-us.html">Contact Us</a></li>
+        </ul>
+        <a href="#" class="btn-atp-login ms-lg-2">ATP LOGIN</a>
+      </div>
     </div>
+  </nav>
 
-      <!-- Welcome Section -->
-      <section class="py-5 container  " style=" border-radius: 50px 0px 0px  50px; margin-top: 50px; margin-bottom: 50px; " >
-                      <div class="container" style=" background-image: url('./images/homeimages/welcome.jpg'); background-repeat: no-repeat; background-size: cover; border-radius: 50px 0px 0px  50px !important;">
-              <div class="row align-items-center">
-                  <!-- Left Content -->
-                  <div class="col-lg-6 p-0 	">
-                      <div class="welcome-content p-5" style="background: linear-gradient(135deg, #1e5fb5 0%, #2980b9 100%); color: white; border-radius: 50px;">
-                          <h1 class="display-4 fw-bold mb-4">Welcome To HiQual UK</h1>
-                          <p class="lead mb-4">
-                              HiQual UK is a leading awarding body offering high-quality qualifications and certifications in various fields. 
-                              Our comprehensive portfolio covers business, technology, healthcare, finance, hospitality, and more.
-                          </p>
-                          <p class="mb-4">
-                              We collaborate with industry experts and employers to develop up-to date qualifications that meet industry 
-                              demands. With a focus on practical skills and rigorous quality assurance, we empower learners to succeed in 
-                              their chosen industries.
-                          </p>
-                          <p class="mb-0">
-                              Join us in unlocking your potential and achieving your professional goals with HiQual UK.
-                          </p>
-                      </div>
-                  </div>
-                  
-              </div>
-          </div>
-      </section>
-
-
-      <!-- Gallery -->
-       <div class="container>
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="display-4 fw-bold mb-4">Our range of Qualifications</h2>
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-content">
+          <p class="hero-welcome">Welcome to</p>
+          <h1 class="hero-title"><span class="brand">HiQual</span> <span class="uk">UK</span></h1>
+          <div class="hero-divider"></div>
+          <p class="hero-tagline">Where Excellence Meets Opportunity.</p>
+          <p class="hero-desc">We are a UK-based awarding organisation offering internationally recognised qualifications that empower learners and professionals to achieve more.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="./qualifications.html" class="btn-hero-primary">Our Qualifications <i class="bi bi-arrow-right"></i></a>
+            <a href="./become-an-atp.html" class="btn-hero-outline">Become an ATP <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
-       </div>
-       <div class="container">
-           <div class="row">
-                <div class="col-lg-4 col-md-12 mb-1 mb-lg-0 px-1">
-                   <!-- Engineering and Manufacturing -->
-                   <div class="position-relative mb-1" style="overflow: hidden;">
-                    <img
-                      src="./images/homeimages/oilsafty.jpg"
-                      class="w-100 shadow-1-strong rounded img-hover-zoom"
-                      alt="Food Category & Hospitality Management"
-                      style="height: 260px; transition: transform 0.5s ease;"
-                      onmouseover="this.style.transform='scale(1.05)'"
-                      onmouseout="this.style.transform='scale(1)'"
-                    />
-                    <div class="position-absolute top-0 start-0 w-50 h-100 d-flex align-items-start p-2" style="background: rgba(0, 0, 0, 0.342);">
-                      <div class="text-white">
-                        <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">FOOD CATEGORY & HOSPITALITY MANAGEMENT</h3>
-                        <p style="font-size: 8px;" class="small">
-                          FOOD CATERING AND HOSPITALITY MANAGEMENT COURSES. MASTER THE ART OF CULINARY EXCELLENCE AND HOSPITALITY MANAGEMENT IN OUR COURSES DESIGNED TO ELEVATE YOUR SKILLS IN THE VIBRANT WORLD OF FOOD CATERING AND HOSPITALITY
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
+        <div class="col-lg-6 hero-graphic d-none d-lg-flex"><img src="./images/homeimages/wellcome.png" alt="HiQual UK"></div>
+      </div>
+    </div>
+  </section>
 
-                   <!-- Food Category & Hospitality Management -->
-                   <div class="position-relative mb-1" style="overflow: hidden;">
-                    <img
-                      src="./images/homeimages/foodsafty.jpg"
-                      class="w-100 shadow-1-strong rounded img-hover-zoom"
-                      alt="Food Category & Hospitality Management"
-                      style="height: 260px; transition: transform 0.5s ease;"
-                      onmouseover="this.style.transform='scale(1.05)'"
-                      onmouseout="this.style.transform='scale(1)'"
-                    />
-                    <div class="position-absolute top-0 start-0 w-50 h-100 d-flex align-items-start p-2" style="background: rgba(0, 0, 0, 0.342);">
-                      <div class="text-white">
-                        <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">FOOD CATEGORY & HOSPITALITY MANAGEMENT</h3>
-                        <p style="font-size: 8px;" class="small">
-                          FOOD CATERING AND HOSPITALITY MANAGEMENT COURSES. MASTER THE ART OF CULINARY EXCELLENCE AND HOSPITALITY MANAGEMENT IN OUR COURSES DESIGNED TO ELEVATE YOUR SKILLS IN THE VIBRANT WORLD OF FOOD CATERING AND HOSPITALITY
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-
-
-                   <!-- Health & Safety -->
-                   <div class="position-relative mb-1" style="overflow: hidden;">
-                    <img
-                      src="./images/homeimages/saftyofficerone.jpg"
-                      class="w-100 shadow-1-strong rounded img-hover-zoom"
-                      alt="Food Category & Hospitality Management"
-                      style="height: 260px; transition: transform 0.5s ease;"
-                      onmouseover="this.style.transform='scale(1.05)'"
-                      onmouseout="this.style.transform='scale(1)'"
-                    />
-                    <div class="position-absolute top-0 end-0 w-50 h-100 d-flex align-items-start p-2" style="background: rgba(0, 0, 0, 0.342);">
-                      <div class="text-white">
-                        <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">FOOD CATEGORY & HOSPITALITY MANAGEMENT</h3>
-                        <p style="font-size: 8px;" class="small">
-                          FOOD CATERING AND HOSPITALITY MANAGEMENT COURSES. MASTER THE ART OF CULINARY EXCELLENCE AND HOSPITALITY MANAGEMENT IN OUR COURSES DESIGNED TO ELEVATE YOUR SKILLS IN THE VIBRANT WORLD OF FOOD CATERING AND HOSPITALITY
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-               </div>
-
-               <div class="col-lg-4 mb-1 mb-lg-0 px-1">
-                <!-- Business Administration -->
-                <div class="position-relative mb-1" style="overflow: hidden;">
-                  <img
-                    src="./images/homeimages/saftystaf.jpg"
-                    class="w-100 shadow-1-strong rounded"
-                    alt="Business Administration"
-                    style="height: 260px; transition: transform 0.5s ease;"
-                    onmouseover="this.style.transform='scale(1.05)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                  />
-                  <div class="position-absolute bottom-0 start-0 w-100 h-20 d-flex align-items-start p-4"
-                    style="background: rgba(0, 0, 0, 0.3);">
-                    <div class="text-white">
-                      <h3 style="font-size: 12px; font-weight: 400;" class="mb-3">BUSINESS ADMINISTRATION</h3>
-                      <p style="font-size: 8px;" class="small">
-                        DEVELOP YOUR EXPERTISE IN LEADERSHIP, MANAGEMENT, AND STRATEGY. ESSENTIAL FOR SUCCESS IN THE DYNAMIC WORLD OF BUSINESS ADMINISTRATION
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              
-                <!-- Energy & Manufacturing Industry -->
-                <div class="position-relative mb-1" style="overflow: hidden;">
-                  <img
-                    src="./images/homeimages/saftyinstructor.jpg"
-                    class="w-100 shadow-1-strong rounded"
-                    alt="Energy & Manufacturing Industry"
-                    style="height: 530px; transition: transform 0.5s ease;"
-                    onmouseover="this.style.transform='scale(1.05)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                  />
-                  <div class="position-absolute bottom-0 start-0 w-100 h-30 d-flex align-items-start p-4"
-                    style="background: rgba(0, 0, 0, 0.3);">
-                    <div class="text-white">
-                      <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">ENERGY & MANUFACTURING INDUSTRY</h3>
-                      <p style="font-size: 8px;" class="small">
-                        NAVIGATE THE INTERSECTION OF ENERGY AND MANUFACTURING WITH OUR SPECIALIZED COURSES. PROVIDING INSIGHTS INTO EFFICIENT PRODUCTION PROCESSES, SUSTAINABLE ENERGY SOLUTIONS, AND INDUSTRY INNOVATION
-                      </p>
-                    </div>
-                  </div>
-                </div>
+  <div class="features-wrap">
+    <div class="container">
+      <div class="features-bar">
+        <div class="row g-0">
+          <div class="col-lg-3 col-sm-6">
+            <div class="feature-col">
+              <div class="feature-icon-wrap feature-icon-wrap--navy">
+                <i class="bi bi-award-fill"></i>
               </div>
-              
-
-              <div class="col-lg-4 mb-1 mb-lg-0 px-1">
-                <!-- Environmental Management -->
-                <div class="position-relative mb-1" style="overflow: hidden;">
-                  <img
-                    src="./images/homeimages/werther.jpg"
-                    class="w-100 shadow-1-strong rounded"
-                    alt="Environmental Management"
-                    style="height: 530px; transition: transform 0.5s ease;"
-                    onmouseover="this.style.transform='scale(1.05)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                  />
-                  <div class="position-absolute bottom-0 start-0 w-100 h-30 d-flex align-items-start p-4"
-                    style="background: rgba(0, 0, 0, 0.342);">
-                    <div class="text-white">
-                      <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">ENVIRONMENTAL MANAGEMENT</h3>
-                      <p style="font-size: 8px;" class="small">
-                        EXPLORE SUSTAINABLE PRACTICES, CONSERVATION STRATEGIES, AND COMPLIANCE WITH ENVIRONMENTAL REGULATIONS IN OUR COURSES DESIGNED TO ADDRESS THE CRITICAL CHALLENGES OF ENVIRONMENTAL MANAGEMENT
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              
-                <!-- ISO Management -->
-                <div class="position-relative mb-1" style="overflow: hidden;">
-                  <img
-                    src="./images/homeimages/officesafty.jpg"
-                    class="w-100 shadow-1-strong rounded"
-                    alt="ISO Management"
-                    style="height: 260px; transition: transform 0.5s ease;"
-                    onmouseover="this.style.transform='scale(1.05)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                  />
-                  <div class="position-absolute top-0 end-0 w-50 h-100 d-flex align-items-start p-4"
-                    style="background: rgba(0, 0, 0, 0.342);">
-                    <div class="text-white">
-                      <h3 style="font-size: 12px; font-weight: 400;" class="fw-bold mb-3">ISO MANAGEMENT</h3>
-                      <p style="font-size: 8px;" class="small">
-                        BECOME PROFICIENT IN IMPLEMENTING AND MANAGING ISO-CERTIFIED SYSTEMS, ENSURING QUALITY, EFFICIENCY, AND COMPLIANCE ACROSS DIVERSE INDUSTRIES
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div class="feature-text">
+                <h6>Trusted Qualifications</h6>
+                <p>Ofqual-regulated qualifications that are globally recognised and respected.</p>
               </div>
-              
-           </div>
-           <!-- Gallery -->
-       </div>
-
-       <section class="py-5" style="background-color: #FFFFFF">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-             <img src="./images/homeimages/hiqual-uk-banner.jpg" alt="HiQual UK" class="w-100 h-100">
             </div>
           </div>
-        </div>
-       </section>
-
-       <!-- Become an Assessor / Center Section -->
-       <section class="py-5" style="background-color: #FFFFFF;">
-           <div class="container">
-               <div class="row g-4">
-                   <!-- Left Column - Become an Assessor & HiQual Center -->
-                   <div class="col-lg-8 col-md-12">
-                       <div class="row g-3">
-                           <!-- Become an Assessor -->
-
-                             <!-- Become A HiQual Center -->
-                             <div class="col-12">
-                                <div class="position-relative overflow-hidden rounded-3" style="height: 300px;">
-                                    <img 
-                                        src="./images/homeimages/saftyofficerone.jpg" 
-                                        class="w-100 h-100" 
-                                        alt="Become A HiQual Center"
-                                        style="object-fit: cover; transition: transform 0.5s ease;"
-                                        onmouseover="this.style.transform='scale(1.05)'"
-                                        onmouseout="this.style.transform='scale(1)'"
-                                    />
-                                    <div class="position-absolute bottom-0 start-0 w-100 h-50 d-flex align-items-start p-4" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8));">
-                                        <div class="text-white">
-                                            <h2 class="display-6 fw-bold mb-3" style="font-size: 2rem;">Become an Assessor</h2>
-                                            <p class="lead mb-0" style="font-size: 1rem;">
-                                                Join us in our mission to drive excellence in quality standards. 
-                                                Become a HiQual UK Assessor and be a part of a dynamic team 
-                                                committed to making a positive impact on industries and 
-                                                businesses nationwide.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                           
-                           <!-- Become A HiQual Center -->
-                           <div class="col-12">
-                               <div class="position-relative overflow-hidden rounded-3" style="height: 300px;">
-                                   <img 
-                                       src="./images/homeimages/saftyofficer.jpg" 
-                                       class="w-100 h-100" 
-                                       alt="Become A HiQual Center"
-                                       style="object-fit: cover; transition: transform 0.5s ease;"
-                                       onmouseover="this.style.transform='scale(1.05)'"
-                                       onmouseout="this.style.transform='scale(1)'"
-                                   />
-                                   <div class="position-absolute bottom-0 start-0 w-100 h-50 d-flex align-items-start p-4" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8));">
-                                       <div class="text-white">
-                                           <h2 class="display-6 fw-bold mb-0" style="font-size: 2rem;">Become A HiQual Center</h2>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-
-                   <!-- Right Column - Testimonial -->
-                     <div class="col-lg-4 col-md-12">
-                        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-                            <div class="carousel-inner">
-                                <!-- Mark Roberts Testimonial -->
-                                <div class="carousel-item active">
-                                    <div class="testimonial-card bg-whit rounded-3 shadow-sm h-100 p-4 d-flex flex-column" style="min-height: 600px;">
-                                        <!-- Profile Image -->
-                                        <div class="text-center mb-4">
-                                            <img 
-                                                src="./images/homeimages/personone.jpeg" 
-                                                class="" 
-                                                alt="Mark Roberts"
-                                                style="width: 100px; height: 100px; object-fit: cover;"
-                                            />
-                                        </div>
-                                        
-                                        <!-- Testimonial Text -->
-                                        <div class="flex-grow-1 d-flex flex-column justify-content-center">
-                                            <div class="text-center mb-4" style="background-color: #E9E9E9; padding: 2rem;">
-                                                <p class="fst-italic text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
-                                                    "HiQual UK has set the gold standard in awarding qualifications and certifications. 
-                                                    Their commitment to maintaining rigorous assessment criteria and staying at the forefront 
-                                                    of industry developments is truly impressive. The recognition and prestige that come with 
-                                                    HiQual UK certifications have greatly contributed to my professional success."
-                                                </p>
-                                            </div>
-                                            
-                                            <!-- Author Info -->
-                                            <div class="text-center">
-                                                <h5 class="fw-bold mb-1">Mark Roberts</h5>
-                                                <p class="text-muted small mb-0">Senior Project Manager</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Sarah Johnson Testimonial -->
-                                <div class="carousel-item">
-                                    <div class="testimonial-card bg-whit rounded-3 shadow-sm h-100 p-4 d-flex flex-column" style="min-height: 600px;">
-                                        <!-- Profile Image -->
-                                        <div class="text-center mb-4">
-                                            <img 
-                                                src="./images/homeimages/pserontwo.jpg" 
-                                                class="" 
-                                                alt="Sarah Johnson"
-                                                style="width: 100px; height: 100px; object-fit: cover;"
-                                            />
-                                        </div>
-                                        
-                                        <!-- Testimonial Text -->
-                                        <div class="flex-grow-1 d-flex flex-column justify-content-center">
-                                            <div class="text-center mb-4" style="background-color: #E9E9E9; padding: 2rem;">
-                                                <p class="fst-italic text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
-                                                    "The comprehensive training programs offered by HiQual UK have transformed my career trajectory. 
-                                                    The practical approach to learning and the industry-relevant curriculum provided me with the skills 
-                                                    and confidence needed to excel in my field. I highly recommend their certification programs."
-                                                </p>
-                                            </div>
-                                            
-                                            <!-- Author Info -->
-                                            <div class="text-center">
-                                                <h5 class="fw-bold mb-1">Sarah Johnson</h5>
-                                                <p class="text-muted small mb-0">Health & Safety Manager</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- David Wilson Testimonial -->
-                                <div class="carousel-item">
-                                    <div class="testimonial-card bg-whit rounded-3 shadow-sm h-100 p-4 d-flex flex-column" style="min-height: 600px;">
-                                        <!-- Profile Image -->
-                                        <div class="text-center mb-4">
-                                            <img 
-                                                src="./images/homeimages/personthree.jpg" 
-                                                class="" 
-                                                alt="David Wilson"
-                                                style="width: 100px; height: 100px; object-fit: cover;"
-                                            />
-                                        </div>
-                                        
-                                        <!-- Testimonial Text -->
-                                        <div class="flex-grow-1 d-flex flex-column justify-content-center">
-                                            <div class="text-center mb-4" style="background-color: #E9E9E9; padding: 2rem;">
-                                                <p class="fst-italic text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
-                                                    "As a training center, partnering with HiQual UK has elevated our offerings significantly. 
-                                                    Their assessment standards are exceptional, and the support provided to centers is outstanding. 
-                                                    Our students consistently achieve excellent results and career advancement."
-                                                </p>
-                                            </div>
-                                            
-                                            <!-- Author Info -->
-                                            <div class="text-center">
-                                                <h5 class="fw-bold mb-1">David Wilson</h5>
-                                                <p class="text-muted small mb-0">Training Center Director</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Carousel Indicators -->
-                            <div class="text-center mt-3">
-                                <div class="carousel-indicators position-relative">
-                                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-dark rounded-circle" style="width: 8px; height: 8px; margin: 0 4px;" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-secondary rounded-circle" style="width: 8px; height: 8px; margin: 0 4px; opacity: 0.4;" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" class="bg-secondary rounded-circle" style="width: 8px; height: 8px; margin: 0 4px; opacity: 0.4;" aria-label="Slide 3"></button>
-                                </div>
-                            </div>
-
-                            <!-- Navigation Arrows (Hidden for cleaner look) -->
-                            <button class="carousel-control-prev d-none" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next d-none" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-               </div>
-           </div>
-       </section>
-
-       </div>
-
-    <!-- Footer -->
-    <!-- Footer -->
-    <footer style="background-color: #AAE4FF;" class=" text-dark py-2">
-        <div class="container">
-          <div class="row">
-            <!-- Column 1: Logo and Contact Info -->
-            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-              <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="height: 40px; width: 120px;" class="mb-3" />
-              <p>Registered in England and Wales</p>
-              <p><svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M224.2 89C216.3 70.1 195.7 60.1 176.1 65.4L170.6 66.9C106 84.5 50.8 147.1 66.9 223.3C104 398.3 241.7 536 416.7 573.1C493 589.3 555.5 534 573.1 469.4L574.6 463.9C580 444.2 569.9 423.6 551.1 415.8L453.8 375.3C437.3 368.4 418.2 373.2 406.8 387.1L368.2 434.3C297.9 399.4 241.3 341 208.8 269.3L253 233.3C266.9 222 271.6 202.9 264.8 186.3L224.2 89z"/></svg> +44 203 942 30448</p>
-              <p><svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M112 128C85.5 128 64 149.5 64 176C64 191.1 71.1 205.3 83.2 214.4L291.2 370.4C308.3 383.2 331.7 383.2 348.8 370.4L556.8 214.4C568.9 205.3 576 191.1 576 176C576 149.5 554.5 128 528 128L112 128zM64 260L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 260L377.6 408.8C343.5 434.4 296.5 434.4 262.4 408.8L64 260z"/></svg> info@hiqual.co.uk</p>
-              <p><svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg> Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</p>
-              <p><strong>Working Hours</strong><br>Mon - 09:00 Hrs - Fri 16:00 Hrs</p>
+          <div class="col-lg-3 col-sm-6">
+            <div class="feature-col">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-globe2"></i>
+              </div>
+              <div class="feature-text">
+                <h6>Global Opportunities</h6>
+                <p>Empowering learners and organisations worldwide to achieve their goals.</p>
+              </div>
             </div>
-      
-            <!-- Column 2: Quick Links -->
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-              <h5 class="fw-bold">QUICK LINKS</h5>
-              <ul class="list-unstyled mt-3">
-                <li><a href="./about.html" class="text-dark text-decoration-none hover-bg-primary hover-text-white px-4 py-2  hover-rounded-full d-block mb-" style="color: #333; font-weight: 600; font-size: 16px;">About Us</a></li>
-                <li><a href="./contact-us.html" class="text-dark text-decoration-none hover-bg-primary hover-text-white  px-4 py-2 hover-rounded-full d-block mb-" style="color: #333; font-weight: 600; font-size: 16px;">Contact Us</a></li>
-                <li><a href="" class="text-dark text-decoration-none hover-bg-primary hover-text-white  px-4 py-2 hover-rounded-full d-block mb-" style="color: #333; font-weight: 600; font-size: 16px;">News and Articles</a></li>
-                <li><a href="./qualifications.html" class="text-dark text-decoration-none hover-bg-primary hover-text-white  px-4 py-2 hover-rounded-full d-block mb-" style="color: #333; font-weight: 600; font-size: 16px;">Qualifications</a></li>
-                <li><a href="" class="text-dark text-decoration-none hover-bg-primary hover-text-white  px-4 py-2 hover-rounded-full d-block mb-" style="color: #333; font-weight: 600; font-size: 16px;">Level 2 Award in First Aid</a></li>
-                <li><a href="" class="text-dark text-decoration-none hover-bg-primary hover-text-white  px-4 py-2 hover-rounded-full d-block mb-" style="color: #333; font-weight: 600; font-size: 16px;">Accessibility</a></li>
-              </ul>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="feature-col">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="feature-text">
+                <h6>Partner With Us</h6>
+                <p>Join our global network of Approved Training Partners and grow together.</p>
+              </div>
             </div>
-      
-            <!-- Column 3: Other Links -->
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled mt-5 mt-md-0">
-                <li><a href="./privacy-policy.html" class="text-decoration-none hover-bg-primary hover-text-white px-4 py-2 hover-rounded-full d-block" style="color: #333; font-weight: 600; font-size: 16px;">Privacy Policy</a></li>
-                <li><a href="./verification.html" class="text-decoration-none hover-bg-primary hover-text-white px-4 py-2 hover-rounded-full d-block" style="color: #333; font-weight: 600; font-size: 16px;">Verification</a></li>
-                <li><a href="./become-an-atp.html" class="text-decoration-none hover-bg-primary hover-text-white px-4 py-2 hover-rounded-full d-block" style="color: #333; font-weight: 600; font-size: 16px;">Become an ATP</a></li>
-                <li><a href="./bespoke-awards.html" class="text-decoration-none hover-bg-primary hover-text-white px-4 py-2 hover-rounded-full d-block" style="color: #333; font-weight: 600; font-size: 16px;">BeSpoke Awards at HiQual UK</a></li>
-                <li><a href="./faq.html" class="text-decoration-none hover-bg-primary hover-text-white px-4 py-2 hover-rounded-full d-block" style="color: #333; font-weight: 600; font-size: 16px;">FAQs</a></li>
-                <li><a href="./terms-and-conditions.html" class="text-decoration-none hover-bg-primary hover-text-white px-4 py-2 hover-rounded-full d-block" style="color: #333; font-weight: 600; font-size: 16px;">Terms & Conditions</a></li>
-              </ul>
-      
-              <!-- Social Icons -->
-              <div class="mt- px-4 py-">
-                <a href="/faq.html" class="text-dark me-3" style="color:#3b5998;" title="Facebook" aria-label="facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook fs-5"></i></a>
-                <a href="/faq.html" class="text-dark me-3" style="color:#1da1f2;" title="Twitter" aria-label="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter fs-5"></i></a>
-                <a href="/faq.html" class="text-dark me-3" style="color:#c13584;" title="Instagram" aria-label="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram fs-5"></i></a>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="feature-col">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-headset"></i>
+              </div>
+              <div class="feature-text">
+                <h6>Dedicated Support</h6>
+                <p>Our team is here to support you every step of the way towards success.</p>
               </div>
             </div>
           </div>
         </div>
-      </footer>
-      
-      <!-- Copyright Footer -->
-<div style="background-color: #68CCFF;" class="text-center py-2 border-top">
-  <p class="mb-0 fw-semibold text-dark">
-    Copyright © 2025 All Rights Reserved by HiQual UK
-  </p>
-</div>
+      </div>
+    </div>
+  </div>
 
+  <section class="about-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <p class="section-label">About HiQual UK</p>
+          <h2 class="section-title">A Commitment to Quality and Integrity</h2>
+          <div class="section-divider"></div>
+          <p style="color:var(--hq-muted);font-size:.93rem;line-height:1.65;">HiQual UK is a recognised awarding organisation committed to maintaining the highest standards in education and training.</p>
+          <p style="color:var(--hq-muted);font-size:.93rem;line-height:1.65;">We work with Approved Training Partners (ATPs) to deliver high-quality qualifications that make a real difference in people's lives.</p>
+          <a href="./about.html" class="btn-section mt-3">Learn More About Us <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="col-lg-7">
+          <div class="about-img-wrap">
+            <img src="./images/homeimages/about.jpg" alt="HiQual UK professional training">
+            <div class="about-badge"><i class="bi bi-building"></i><h6>UK Based<br>Globally Trusted</h6><p>Delivering excellence in education since our inception.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    
-    <script>
-        // Enhanced Continuous Scroll for Testimonial Carousel
-        document.addEventListener('DOMContentLoaded', function() {
-            const testimonialCarousel = document.getElementById('testimonialCarousel');
-            
-            if (testimonialCarousel) {
-                const carousel = new bootstrap.Carousel(testimonialCarousel, {
-                    interval: 1000,
-                    wrap: true,
-                    pause: 'hover',
-                    ride: 'carousel'
-                });
-                
-                // Pause on hover and resume on mouse leave
-                testimonialCarousel.addEventListener('mouseenter', function() {
-                    carousel.pause();
-                });
-                
-                testimonialCarousel.addEventListener('mouseleave', function() {
-                    carousel.cycle();
-                });
-                
-                // Smooth indicator updates
-                testimonialCarousel.addEventListener('slid.bs.carousel', function(event) {
-                    const indicators = testimonialCarousel.querySelectorAll('.carousel-indicators button');
-                    indicators.forEach((indicator, index) => {
-                        if (index === event.to) {
-                            indicator.classList.add('active');
-                            indicator.style.opacity = '1';
-                            indicator.classList.remove('bg-secondary');
-                            indicator.classList.add('bg-dark');
-                        } else {
-                            indicator.classList.remove('active');
-                            indicator.style.opacity = '0.4';
-                            indicator.classList.remove('bg-dark');
-                            indicator.classList.add('bg-secondary');
-                        }
-                    });
-                });
-                
-                // Touch/swipe support for mobile
-                let startX = 0;
-                let endX = 0;
-                
-                testimonialCarousel.addEventListener('touchstart', function(e) {
-                    startX = e.changedTouches[0].screenX;
-                });
-                
-                testimonialCarousel.addEventListener('touchend', function(e) {
-                    endX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                });
-                
-                function handleSwipe() {
-                    const swipeThreshold = 50;
-                    const diff = startX - endX;
-                    
-                    if (Math.abs(diff) > swipeThreshold) {
-                        if (diff > 0) {
-                            // Swipe left - next slide
-                            carousel.next();
-                        } else {
-                            // Swipe right - previous slide
-                            carousel.prev();
-                        }
-                    }
-                }
-            }
-        });
-    </script>
-    
-    <script>
-        // Scroll to Top Function
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Show/Hide Back to Top Button based on scroll position
-        window.addEventListener('scroll', function() {
-            const backToTopBtn = document.querySelector('.back-to-top button');
-            if (backToTopBtn) {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.style.opacity = '1';
-                    backToTopBtn.style.visibility = 'visible';
-                } else {
-                    backToTopBtn.style.opacity = '0.7';
-                    backToTopBtn.style.visibility = 'visible';
-                }
-            }
-        });
-    </script>
+  <section class="stats-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-mortarboard-fill"></i></div><h2>500+</h2><p class="stat-name">Qualifications</p><p class="stat-sub">Across multiple sectors</p></div></div>
+        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-globe2"></i></div><h2>60+</h2><p class="stat-name">Countries</p><p class="stat-sub">Global reach and growing</p></div></div>
+        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-handshake-fill"></i></div><h2>1000+</h2><p class="stat-name">Approved Partners</p><p class="stat-sub">Trusted training providers</p></div></div>
+        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-people-fill"></i></div><h2>100K+</h2><p class="stat-name">Learners</p><p class="stat-sub">Empowered worldwide</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qualifications-section">
+    <div class="container">
+      <div class="row align-items-start g-5">
+        <div class="col-lg-4">
+          <p class="section-label">Our Qualifications</p>
+          <h2 class="section-title">Explore Our Qualification Range</h2>
+          <div class="section-divider"></div>
+          <p style="color:var(--hq-muted);font-size:.93rem;line-height:1.65;">High-quality, Ofqual-regulated qualifications designed to meet industry needs and empower learners.</p>
+          <a href="./qualifications.html" class="link-circle mt-3">View All Qualifications <span class="circle-arrow"><i class="bi bi-arrow-right"></i></span></a>
+        </div>
+        <div class="col-lg-8">
+          <div class="row g-4">
+            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/officesafty.jpg" alt="Engineering"><div class="qual-card-icon"><i class="bi bi-gear-fill"></i></div></div><div class="qual-card-body"><h5>Engineering &amp; Construction</h5><p>Qualifications for the built environment and engineering industries.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
+            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/saftyinstructor.jpg" alt="Health and Safety"><div class="qual-card-icon"><i class="bi bi-heart-pulse-fill"></i></div></div><div class="qual-card-body"><h5>Health &amp; Safety</h5><p>Promoting safer workplaces through recognised health and safety qualifications.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
+            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/imgone.png" alt="Business"><div class="qual-card-icon"><i class="bi bi-bar-chart-fill"></i></div></div><div class="qual-card-body"><h5>Business &amp; Management</h5><p>Develop essential skills for business growth and leadership.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news-section">
+    <div class="container">
+      <div class="row g-4 g-xl-5 align-items-start">
+        <div class="col-lg-3 news-intro">
+          <p class="section-label">News &amp; Articles</p>
+          <h2 class="section-title">Stay Informed</h2>
+          <a href="#" class="link-circle">View All News <span class="circle-arrow"><i class="bi bi-arrow-right"></i></span></a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <article class="news-card">
+            <img class="news-card-img" src="./images/homeimages/welcome.jpg" alt="HiQual UK partnership meeting">
+            <div class="news-card-body">
+              <p class="news-date">10 May 2024</p>
+              <h6>HiQual UK Expands Global Partnership Network</h6>
+              <a href="#" class="link-circle">Read More <span class="circle-arrow"><i class="bi bi-arrow-right"></i></span></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <article class="news-card">
+            <img class="news-card-img" src="./images/homeimages/gym.jpg" alt="Quality qualifications discussion">
+            <div class="news-card-body">
+              <p class="news-date">25 April 2024</p>
+              <h6>The Importance of Quality Qualifications</h6>
+              <a href="#" class="link-circle">Read More <span class="circle-arrow"><i class="bi bi-arrow-right"></i></span></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <article class="news-card">
+            <img class="news-card-img" src="./images/homeimages/werther.jpg" alt="Learners collaborating worldwide">
+            <div class="news-card-body">
+              <p class="news-date">15 April 2024</p>
+              <h6>How HiQual UK Supports Learners Worldwide</h6>
+              <a href="#" class="link-circle">Read More <span class="circle-arrow"><i class="bi bi-arrow-right"></i></span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <img src="./images/homeimages/logo.png" alt="HiQual Logo" style="height:46px;width:auto;" class="mb-3">
+          <p>Registered in England and Wales</p>
+          <p><i class="bi bi-telephone me-2"></i>+44 203 942 3048</p>
+          <p><i class="bi bi-envelope me-2"></i>info@hiqual.co.uk</p>
+          <p><i class="bi bi-geo-alt me-2"></i>Suite 2999, 34-35 Hatton Garden, London, England, EC1N 8DX</p>
+          <p><strong>Working Hours</strong><br>Mon - 09:00 Hrs - Fri 16:00 Hrs</p>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5>QUICK LINKS</h5>
+          <ul class="list-unstyled mt-3">
+            <li class="mb-2"><a href="./about.html">About Us</a></li>
+            <li class="mb-2"><a href="./contact-us.html">Contact Us</a></li>
+            <li class="mb-2"><a href="#">News and Articles</a></li>
+            <li class="mb-2"><a href="./qualifications.html">Qualifications</a></li>
+            <li class="mb-2"><a href="#">Level 2 Award in First Aid</a></li>
+            <li class="mb-2"><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <ul class="list-unstyled mt-lg-5">
+            <li class="mb-2"><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li class="mb-2"><a href="./verification.html">Verification</a></li>
+            <li class="mb-2"><a href="./become-an-atp.html">Become an ATP</a></li>
+            <li class="mb-2"><a href="./bespoke-awards.html">BeSpoke Awards at HiQual UK</a></li>
+            <li class="mb-2"><a href="./faq.html">FAQs</a></li>
+            <li class="mb-2"><a href="./terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+          <div class="mt-3">
+            <a href="#" class="me-3" aria-label="Facebook"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="me-3" aria-label="Twitter"><i class="bi bi-twitter fs-5"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram fs-5"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-copy"><p class="mb-0">Copyright &copy; 2025 All Rights Reserved by HiQual UK</p></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
