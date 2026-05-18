@@ -35,7 +35,7 @@
     .qual-card-body h5,
     .news-card-body h6,
     .stat-item h2,
-    .about-badge h6,
+    .about-badge-title,
     footer.site-footer h5 {
       font-family: var(--font-heading);
       letter-spacing: -0.01em;
@@ -106,24 +106,44 @@
     /* ── HERO ── */
     .hero-section {
       position: relative;
-      background: linear-gradient(105deg, #eef4fb 0%, #f6f9fc 45%, #dceaf7 100%);
-      min-height: 520px;
+      background: #ffffff;
+      min-height: 580px;
+      padding-bottom: 70px;
       overflow: hidden;
+    }
+    .hero-visual {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(62vw, 900px);
+      height: 100%;
+      background: url('./images/homeimages/homepagehiqulnew.png') right center / cover no-repeat;
+      z-index: 0;
     }
     .hero-section::before {
       content: '';
       position: absolute;
-      right: 0;
-      top: 0;
-      width: 58%;
-      height: 100%;
-      background: url('./images/homeimages/hiqual-uk-banner.jpg') center right / cover no-repeat;
-      opacity: .35;
-      mask-image: linear-gradient(to left, rgba(0,0,0,.9) 40%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,.9) 40%, transparent 100%);
+      inset: 0;
+      z-index: 1;
       pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 38%,
+        rgba(255, 255, 255, 0.98) 44%,
+        rgba(255, 255, 255, 0.88) 50%,
+        rgba(255, 255, 255, 0.45) 58%,
+        transparent 66%
+      );
     }
-    .hero-content { position: relative; z-index: 2; padding: 70px 0 90px; }
+    .hero-container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content {
+      padding: 72px 0 40px;
+      max-width: 520px;
+    }
     .hero-welcome {
       font-size: .95rem;
       font-weight: 500;
@@ -137,11 +157,11 @@
       margin-bottom: 0;
     }
     .hero-title .brand { color: var(--hq-navy); }
-    .hero-title .uk { color: var(--hq-accent); }
+    .hero-title .uk { color: #1a7fd4; }
     .hero-divider {
       width: 48px;
       height: 3px;
-      background: var(--hq-blue);
+      background: #1a7fd4;
       border-radius: 2px;
       margin: 16px 0;
     }
@@ -161,7 +181,7 @@
       margin-bottom: 28px;
     }
     .btn-hero-primary {
-      background: var(--hq-blue);
+      background: #1a7fd4;
       color: #fff;
       border: none;
       border-radius: 50px;
@@ -177,8 +197,8 @@
     .btn-hero-primary:hover { background: var(--hq-accent); color: #fff; }
     .btn-hero-outline {
       background: #fff;
-      color: var(--hq-blue);
-      border: 2px solid var(--hq-blue);
+      color: #1a7fd4;
+      border: 2px solid #1a7fd4;
       border-radius: 50px;
       padding: .65rem 1.5rem;
       font-weight: 700;
@@ -193,33 +213,18 @@
       background: var(--hq-blue);
       color: #fff;
     }
-    .hero-graphic {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 40px 0 20px;
-    }
-    .hero-graphic img {
-      max-width: 100%;
-      width: 420px;
-      height: auto;
-      object-fit: contain;
-    }
-
     /* ── FEATURES BAR ── */
     .features-wrap {
-      margin-top: -50px;
+      margin-top: -56px;
       position: relative;
       z-index: 10;
-      padding-bottom: 20px;
+      padding: 0 0 24px;
     }
     .features-bar {
       background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 6px 32px rgba(0, 26, 65, 0.08);
-      padding: 8px 0;
+      border-radius: 18px;
+      box-shadow: 0 8px 36px rgba(0, 26, 65, 0.1);
+      padding: 6px 0;
     }
     .feature-col {
       display: flex;
@@ -245,7 +250,7 @@
       flex-shrink: 0;
     }
     .feature-icon-wrap--navy {
-      background: #001a41;
+      background: #0056b3;
     }
     .feature-text {
       flex: 1;
@@ -336,39 +341,63 @@
     .about-section { padding: 70px 0 80px; }
     .about-img-wrap {
       position: relative;
-      border-radius: 12px;
+      border-radius: 24px;
       overflow: hidden;
     }
     .about-img-wrap > img {
       width: 100%;
       height: 400px;
       object-fit: cover;
-      border-radius: 12px;
       display: block;
     }
     .about-badge {
       position: absolute;
-      bottom: 28px;
-      right: 28px;
-      background: var(--hq-blue);
+      bottom: 0;
+      right: 24px;
+      background: #0056d2;
       color: #fff;
-      border-radius: 10px;
-      padding: 18px 22px;
-      max-width: 210px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+      border-radius: 28px 28px 0 0;
+      padding: 32px 36px;
+      max-width: min(440px, 58%);
+      display: flex;
+      align-items: center;
+      gap: 22px;
     }
-    .about-badge i { font-size: 1.6rem; display: block; margin-bottom: 8px; }
-    .about-badge h6 {
-      font-weight: 600;
-      font-size: .9rem;
-      line-height: 1.3;
-      margin: 0 0 6px;
-    }
-    .about-badge p {
-      font-size: .72rem;
-      opacity: .9;
+    .about-badge > i {
+      font-size: 2.75rem;
+      line-height: 1;
+      flex-shrink: 0;
       margin: 0;
-      line-height: 1.45;
+      opacity: 1;
+    }
+    .about-badge-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .about-badge-title {
+      font-family: var(--font-heading);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .about-badge-title .line-1 {
+      display: block;
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+    .about-badge-title .line-2 {
+      display: block;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-top: 2px;
+    }
+    .about-badge-text p {
+      font-family: var(--font-body);
+      font-size: .875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      margin: 14px 0 0;
+      opacity: 0.92;
     }
 
     /* ── STATS ── */
@@ -412,6 +441,7 @@
       background: #f7fafd;
     }
     .qual-card {
+      position: relative;
       background: #fff;
       border-radius: 12px;
       overflow: visible;
@@ -433,25 +463,30 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+      border-radius: 12px 12px 0 0;
     }
     .qual-card-icon {
       position: absolute;
-      bottom: -22px;
       left: 20px;
-      width: 46px;
-      height: 46px;
-      background: var(--hq-light-blue);
-      border: 3px solid #fff;
+      top: 171px;
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border: 2px solid #b8d4ef;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--hq-blue);
-      font-size: 1.1rem;
-      z-index: 2;
+      font-size: 1.15rem;
+      z-index: 5;
+      box-shadow: 0 2px 10px rgba(10, 61, 110, 0.12);
     }
     .qual-card-body {
-      padding: 32px 20px 22px;
+      position: relative;
+      z-index: 1;
+      padding: 36px 20px 22px;
     }
     .qual-card-body h5 {
       font-weight: 600;
@@ -564,7 +599,22 @@
     }
 
     @media (max-width: 991px) {
-      .hero-section::before { width: 100%; opacity: .2; }
+      .hero-visual {
+        width: 100%;
+        opacity: 0.35;
+      }
+      .hero-section::before {
+        background: linear-gradient(
+          180deg,
+          #ffffff 0%,
+          rgba(255, 255, 255, 0.95) 45%,
+          rgba(255, 255, 255, 0.85) 100%
+        );
+      }
+      .hero-content {
+        max-width: 100%;
+        padding: 50px 0 30px;
+      }
       .features-bar .col-sm-6:nth-child(odd) .feature-col {
         border-right: none;
       }
@@ -589,6 +639,17 @@
       .topbar .topbar-inner { justify-content: center; }
       .hero-content { padding: 50px 0 70px; }
       .about-img-wrap > img { height: 280px; }
+      .about-badge {
+        max-width: calc(100% - 32px);
+        right: 16px;
+        padding: 24px 22px;
+        gap: 16px;
+        border-radius: 20px 20px 0 0;
+      }
+      .about-badge > i { font-size: 2.2rem; }
+      .about-badge-title .line-1 { font-size: .95rem; }
+      .about-badge-title .line-2 { font-size: 1.05rem; }
+      .about-badge-text p { font-size: .8rem; margin-top: 10px; }
       .news-intro { margin-bottom: 1.5rem; padding-right: 0; }
     }
   </style>
@@ -629,9 +690,10 @@
   </nav>
 
   <section class="hero-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 hero-content">
+    <div class="hero-visual" aria-hidden="true"></div>
+    <div class="container hero-container">
+      <div class="row">
+        <div class="col-lg-6 col-xl-5 hero-content">
           <p class="hero-welcome">Welcome to</p>
           <h1 class="hero-title"><span class="brand">HiQual</span> <span class="uk">UK</span></h1>
           <div class="hero-divider"></div>
@@ -642,7 +704,6 @@
             <a href="./become-an-atp.html" class="btn-hero-outline">Become an ATP <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-6 hero-graphic d-none d-lg-flex"><img src="./images/homeimages/wellcome.png" alt="HiQual UK"></div>
       </div>
     </div>
   </section>
@@ -714,7 +775,16 @@
         <div class="col-lg-7">
           <div class="about-img-wrap">
             <img src="./images/homeimages/about.jpg" alt="HiQual UK professional training">
-            <div class="about-badge"><i class="bi bi-building"></i><h6>UK Based<br>Globally Trusted</h6><p>Delivering excellence in education since our inception.</p></div>
+            <div class="about-badge">
+              <i class="bi bi-bank"></i>
+              <div class="about-badge-text">
+                <p class="about-badge-title">
+                  <span class="line-1">UK Based</span>
+                  <span class="line-2">Globally Trusted</span>
+                </p>
+                <p>Delivering excellence in education since our inception.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -744,9 +814,9 @@
         </div>
         <div class="col-lg-8">
           <div class="row g-4">
-            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/officesafty.jpg" alt="Engineering"><div class="qual-card-icon"><i class="bi bi-gear-fill"></i></div></div><div class="qual-card-body"><h5>Engineering &amp; Construction</h5><p>Qualifications for the built environment and engineering industries.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
-            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/saftyinstructor.jpg" alt="Health and Safety"><div class="qual-card-icon"><i class="bi bi-heart-pulse-fill"></i></div></div><div class="qual-card-body"><h5>Health &amp; Safety</h5><p>Promoting safer workplaces through recognised health and safety qualifications.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
-            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/imgone.png" alt="Business"><div class="qual-card-icon"><i class="bi bi-bar-chart-fill"></i></div></div><div class="qual-card-body"><h5>Business &amp; Management</h5><p>Develop essential skills for business growth and leadership.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
+            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/officesafty.jpg" alt="Engineering"></div><div class="qual-card-icon" aria-hidden="true"><i class="bi bi-gear-fill"></i></div><div class="qual-card-body"><h5>Engineering &amp; Construction</h5><p>Qualifications for the built environment and engineering industries.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
+            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/saftyinstructor.jpg" alt="Health and Safety"></div><div class="qual-card-icon" aria-hidden="true"><i class="bi bi-heart-pulse-fill"></i></div><div class="qual-card-body"><h5>Health &amp; Safety</h5><p>Promoting safer workplaces through recognised health and safety qualifications.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
+            <div class="col-md-4"><div class="qual-card"><div class="qual-card-img"><img src="./images/homeimages/imgone.png" alt="Business"></div><div class="qual-card-icon" aria-hidden="true"><i class="bi bi-bar-chart-fill"></i></div><div class="qual-card-body"><h5>Business &amp; Management</h5><p>Develop essential skills for business growth and leadership.</p><a href="./qualifications.html" class="explore-link">Explore <i class="bi bi-arrow-right"></i></a></div></div></div>
           </div>
         </div>
       </div>
