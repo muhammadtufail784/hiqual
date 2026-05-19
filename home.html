@@ -107,20 +107,22 @@
     .hero-section {
       position: relative;
       background: #ffffff;
-      min-height: 580px;
       padding-bottom: 70px;
       overflow: hidden;
     }
-    .hero-visual {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: min(62vw, 900px);
-      height: 100%;
-      background: url('./images/homeimages/homepagehiqulnew.png') right center / cover no-repeat;
-      z-index: 0;
+    .hero-carousel {
+      position: relative;
     }
-    .hero-section::before {
+    .hero-carousel .carousel-inner,
+    .hero-carousel .carousel-item,
+    .hero-slide {
+      min-height: 580px;
+    }
+    .hero-slide {
+      position: relative;
+      background: #fff;
+    }
+    .hero-slide::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -136,9 +138,57 @@
         transparent 66%
       );
     }
+    .hero-slide-media {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(62vw, 900px);
+      height: 100%;
+      z-index: 0;
+    }
+    .hero-carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      display: block;
+    }
     .hero-container {
       position: relative;
       z-index: 2;
+    }
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+      width: 46px;
+      height: 46px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 1;
+      z-index: 5;
+      border: none;
+      border-radius: 50%;
+      background: rgba(10, 61, 110, 0.82);
+      transition: background 0.2s;
+    }
+    .hero-carousel .carousel-control-prev:hover,
+    .hero-carousel .carousel-control-next:hover {
+      background: var(--hq-accent);
+    }
+    @media (min-width: 992px) {
+      .hero-carousel .carousel-control-prev {
+        left: calc(100% - min(62vw, 900px) + 20px);
+        right: auto;
+      }
+      .hero-carousel .carousel-control-next {
+        right: 20px;
+        left: auto;
+      }
+    }
+    .hero-carousel .carousel-control-prev-icon,
+    .hero-carousel .carousel-control-next-icon {
+      width: 1.35rem;
+      height: 1.35rem;
+      filter: none;
     }
     .hero-content {
       padding: 72px 0 40px;
@@ -402,37 +452,114 @@
 
     /* ── STATS ── */
     .stats-section {
-      background: linear-gradient(135deg, #0d5ba8 0%, #0a3d6e 100%);
-      padding: 56px 0;
+      position: relative;
+      background-color: #0b4f96;
+      padding: 44px 0;
+      overflow: hidden;
     }
-    .stat-item { text-align: center; color: #fff; padding: 10px; }
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: 0.35;
+      mask-image: radial-gradient(ellipse 70% 85% at 50% 50%, #000 15%, transparent 72%);
+      pointer-events: none;
+    }
+    .stats-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    .stats-row {
+      --bs-gutter-x: 0;
+    }
+    @media (min-width: 992px) {
+      .stat-col:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.18);
+      }
+    }
+    .stat-col {
+      display: flex;
+      justify-content: center;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #fff;
+      padding: 12px 20px;
+      text-align: left;
+    }
     .stat-icon {
-      width: 64px;
-      height: 64px;
-      border: 2px solid rgba(255,255,255,.35);
+      flex-shrink: 0;
+      width: 58px;
+      height: 58px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
+      color: #fff;
+    }
+    .stat-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
     }
     .stat-item h2 {
-      font-size: 2.4rem;
+      font-size: 2.15rem;
       font-weight: 700;
       margin: 0;
-      line-height: 1;
+      line-height: 1.1;
+      color: #fff;
     }
     .stat-item .stat-name {
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: .95rem;
-      margin: 8px 0 4px;
+      font-size: 1rem;
+      margin: 4px 0 0;
+      color: #fff;
     }
     .stat-item .stat-sub {
-      font-size: .78rem;
-      opacity: .75;
-      margin: 0;
+      font-size: .8rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.62);
+      margin: 2px 0 0;
+      line-height: 1.35;
+    }
+    @media (max-width: 991.98px) {
+      .stat-col:nth-child(odd) .stat-item {
+        border-right: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .stat-col:nth-child(even) .stat-item {
+        border-right: none;
+      }
+      .stat-col:nth-child(-n+2) .stat-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        padding-bottom: 24px;
+        margin-bottom: 8px;
+      }
+      .stat-item {
+        padding: 16px 14px;
+        gap: 12px;
+      }
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.15rem;
+      }
+      .stat-item h2 {
+        font-size: 1.65rem;
+      }
+      .stat-item .stat-name {
+        font-size: .88rem;
+      }
+      .stat-item .stat-sub {
+        font-size: .72rem;
+      }
     }
 
     /* ── QUALIFICATIONS ── */
@@ -599,21 +726,61 @@
     }
 
     @media (max-width: 991px) {
-      .hero-visual {
-        width: 100%;
-        opacity: 0.35;
+      .hero-section {
+        padding: 0 1.25rem 0;
+        overflow: visible;
       }
-      .hero-section::before {
-        background: linear-gradient(
-          180deg,
-          #ffffff 0%,
-          rgba(255, 255, 255, 0.95) 45%,
-          rgba(255, 255, 255, 0.85) 100%
-        );
+      .hero-carousel .carousel-inner,
+      .hero-carousel .carousel-item,
+      .hero-slide {
+        min-height: auto;
+      }
+      .hero-slide {
+        display: flex;
+        flex-direction: column;
+      }
+      .hero-slide::before {
+        display: none;
+      }
+      .hero-slide-media {
+        position: relative;
+        order: 2;
+        width: 100%;
+        height: clamp(200px, 38vw, 300px);
+      }
+      .hero-carousel-img {
+        object-position: center center;
+      }
+      .hero-container {
+        order: 1;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
       }
       .hero-content {
         max-width: 100%;
-        padding: 50px 0 30px;
+        padding: 40px 0 28px;
+      }
+      .hero-carousel .carousel-control-prev,
+      .hero-carousel .carousel-control-next {
+        top: auto;
+        bottom: calc(clamp(200px, 38vw, 300px) / 2);
+        transform: translateY(50%);
+      }
+      .hero-carousel .carousel-control-prev {
+        left: 16px;
+        right: auto;
+      }
+      .hero-carousel .carousel-control-next {
+        right: 16px;
+        left: auto;
+      }
+      .features-wrap .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .hero-desc {
+        max-width: 100%;
       }
       .features-bar .col-sm-6:nth-child(odd) .feature-col {
         border-right: none;
@@ -637,7 +804,53 @@
     }
     @media (max-width: 767px) {
       .topbar .topbar-inner { justify-content: center; }
-      .hero-content { padding: 50px 0 70px; }
+      .hero-section {
+        padding-bottom: 0;
+      }
+      .hero-content {
+        padding: 28px 0 24px;
+      }
+      .hero-welcome {
+        font-size: .88rem;
+      }
+      .hero-title {
+        font-size: clamp(1.75rem, 7.5vw, 2.35rem);
+      }
+      .hero-divider {
+        margin: 12px 0;
+      }
+      .hero-tagline {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+      .hero-desc {
+        font-size: .88rem;
+        line-height: 1.6;
+        margin-bottom: 22px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        gap: 12px !important;
+      }
+      .hero-actions .btn-hero-primary,
+      .hero-actions .btn-hero-outline {
+        width: 100%;
+        justify-content: center;
+        padding: .75rem 1.25rem;
+      }
+      .hero-slide-media {
+        height: clamp(180px, 52vw, 260px);
+      }
+      .hero-carousel .carousel-control-prev,
+      .hero-carousel .carousel-control-next {
+        width: 40px;
+        height: 40px;
+        bottom: calc(clamp(180px, 52vw, 260px) / 2);
+      }
+      .features-wrap {
+        margin-top: -40px;
+        padding-bottom: 16px;
+      }
       .about-img-wrap > img { height: 280px; }
       .about-badge {
         max-width: calc(100% - 32px);
@@ -651,6 +864,45 @@
       .about-badge-title .line-2 { font-size: 1.05rem; }
       .about-badge-text p { font-size: .8rem; margin-top: 10px; }
       .news-intro { margin-bottom: 1.5rem; padding-right: 0; }
+    }
+    @media (max-width: 575px) {
+      .hero-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .features-wrap .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .hero-content {
+        padding: 22px 0 20px;
+      }
+      .hero-title {
+        font-size: 1.65rem;
+      }
+      .hero-tagline {
+        font-size: .92rem;
+      }
+      .hero-desc {
+        font-size: .84rem;
+        margin-bottom: 18px;
+      }
+      .hero-slide-media {
+        height: 200px;
+      }
+      .hero-carousel .carousel-control-prev,
+      .hero-carousel .carousel-control-next {
+        bottom: 100px;
+        left: 12px;
+        right: auto;
+      }
+      .hero-carousel .carousel-control-next {
+        right: 12px;
+        left: auto;
+      }
+      .features-wrap {
+        margin-top: -32px;
+      }
     }
   </style>
 </head>
@@ -690,24 +942,83 @@
   </nav>
 
   <section class="hero-section">
-    <div class="hero-visual" aria-hidden="true"></div>
-    <div class="container hero-container">
-      <div class="row">
-        <div class="col-lg-6 col-xl-5 hero-content">
-          <p class="hero-welcome">Welcome to</p>
-          <h1 class="hero-title"><span class="brand">HiQual</span> <span class="uk">UK</span></h1>
-          <div class="hero-divider"></div>
-          <p class="hero-tagline">Where Excellence Meets Opportunity.</p>
-          <p class="hero-desc">We are a UK-based awarding organisation offering internationally recognised qualifications that empower learners and professionals to achieve more.</p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="./qualifications.html" class="btn-hero-primary">Our Qualifications <i class="bi bi-arrow-right"></i></a>
-            <a href="./become-an-atp.html" class="btn-hero-outline">Become an ATP <i class="bi bi-arrow-right"></i></a>
+    <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover">
+      <button class="carousel-control-prev hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous slide">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next slide">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="hero-slide">
+            <div class="hero-slide-media">
+              <img src="./images/homeimages/headersliderone.png" class="hero-carousel-img" alt="HiQual at the International Traffic Safety Conference in Dammam">
+            </div>
+            <div class="container hero-container">
+              <div class="row">
+                <div class="col-lg-6 col-xl-5 hero-content">
+                  <p class="hero-welcome">Strategic Partner at</p>
+                  <h1 class="hero-title"><span class="brand">Traffic Safety</span> <span class="uk">Conference</span></h1>
+                  <div class="hero-divider"></div>
+                  <p class="hero-tagline">Building Safer Roads. Protecting Lives.</p>
+                  <p class="hero-desc">HiQual UK at the 6th International Traffic Safety Conference in Dammam — supporting recognised qualifications and road safety expertise worldwide.</p>
+                  <div class="hero-actions d-flex flex-wrap gap-3">
+                    <a href="./qualifications.html" class="btn-hero-primary">Our Qualifications <i class="bi bi-arrow-right"></i></a>
+                    <a href="./become-an-atp.html" class="btn-hero-outline">Become an ATP <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-slide">
+            <div class="hero-slide-media">
+              <img src="./images/homeimages/headerslidertwo.png" class="hero-carousel-img" alt="HiQual UK at ITSC 2018 in Doha, Qatar">
+            </div>
+            <div class="container hero-container">
+              <div class="row">
+                <div class="col-lg-6 col-xl-5 hero-content">
+                  <p class="hero-welcome">Proud Partner at</p>
+                  <h1 class="hero-title"><span class="brand">ITSC 2018</span> <span class="uk">Doha</span></h1>
+                  <div class="hero-divider"></div>
+                  <p class="hero-tagline">International Traffic Safety Conference</p>
+                  <p class="hero-desc">Partnering at ITSC 2018 in Qatar to advance traffic safety standards and professional learning across the region and beyond.</p>
+                  <div class="hero-actions d-flex flex-wrap gap-3">
+                    <a href="./qualifications.html" class="btn-hero-primary">Our Qualifications <i class="bi bi-arrow-right"></i></a>
+                    <a href="./contact-us.html" class="btn-hero-outline">Contact Us <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-slide">
+            <div class="hero-slide-media">
+              <img src="./images/homeimages/homepagehiqulnew.png" class="hero-carousel-img" alt="HiQual UK awarding organisation">
+            </div>
+            <div class="container hero-container">
+              <div class="row">
+                <div class="col-lg-6 col-xl-5 hero-content">
+                  <p class="hero-welcome">Welcome to</p>
+                  <h1 class="hero-title"><span class="brand">HiQual</span> <span class="uk">UK</span></h1>
+                  <div class="hero-divider"></div>
+                  <p class="hero-tagline">Where Excellence Meets Opportunity.</p>
+                  <p class="hero-desc">We are a UK-based awarding organisation offering internationally recognised qualifications that empower learners and professionals to achieve more.</p>
+                  <div class="hero-actions d-flex flex-wrap gap-3">
+                    <a href="./qualifications.html" class="btn-hero-primary">Our Qualifications <i class="bi bi-arrow-right"></i></a>
+                    <a href="./become-an-atp.html" class="btn-hero-outline">Become an ATP <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <div class="features-wrap">
     <div class="container">
       <div class="features-bar">
@@ -793,11 +1104,47 @@
 
   <section class="stats-section">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-mortarboard-fill"></i></div><h2>500+</h2><p class="stat-name">Qualifications</p><p class="stat-sub">Across multiple sectors</p></div></div>
-        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-globe2"></i></div><h2>60+</h2><p class="stat-name">Countries</p><p class="stat-sub">Global reach and growing</p></div></div>
-        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-handshake-fill"></i></div><h2>1000+</h2><p class="stat-name">Approved Partners</p><p class="stat-sub">Trusted training providers</p></div></div>
-        <div class="col-6 col-lg-3"><div class="stat-item"><div class="stat-icon"><i class="bi bi-people-fill"></i></div><h2>100K+</h2><p class="stat-name">Learners</p><p class="stat-sub">Empowered worldwide</p></div></div>
+      <div class="row stats-row align-items-center">
+        <div class="col-6 col-lg-3 stat-col">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-mortarboard"></i></div>
+            <div class="stat-content">
+              <h2>500+</h2>
+              <p class="stat-name">Qualifications</p>
+              <p class="stat-sub">Across multiple sectors</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 stat-col">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-globe2"></i></div>
+            <div class="stat-content">
+              <h2>60+</h2>
+              <p class="stat-name">Countries</p>
+              <p class="stat-sub">Global reach and growing</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 stat-col">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-globe2"></i></div>
+            <div class="stat-content">
+              <h2>1000+</h2>
+              <p class="stat-name">Approved Partners</p>
+              <p class="stat-sub">Trusted training providers</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 stat-col">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-people"></i></div>
+            <div class="stat-content">
+              <h2>100K+</h2>
+              <p class="stat-name">Learners</p>
+              <p class="stat-sub">Empowered worldwide</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
