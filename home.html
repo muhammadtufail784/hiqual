@@ -27,6 +27,11 @@
       overflow-x: hidden;
     }
 
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+
     /* Headings — Poppins */
     h1, h2, h3, h4, h5, h6,
     .hero-title,
@@ -114,10 +119,22 @@
       position: relative;
       overflow: hidden;
     }
+    /* Prevent flex columns from clipping text (row/col overflow) */
+    .hero-slide .row {
+      --bs-gutter-x: 0;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .hero-slide .row > [class*='col-'] {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
+      min-width: 0;
+    }
     .hero-carousel .carousel-inner,
     .hero-carousel .carousel-item,
     .hero-slide {
-      min-height: 580px;
+      min-height: min(580px, 78vh);
     }
     .hero-slide {
       position: relative;
@@ -158,38 +175,45 @@
       position: relative;
       z-index: 2;
     }
-    .hero-carousel .carousel-control-prev,
-    .hero-carousel .carousel-control-next {
+    /* Nav lives in .features-wrap so it stacks above slides but stays visible over the overlap */
+    .hero-carousel-nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 10px;
+      pointer-events: none;
+      z-index: 14;
+    }
+    .hero-carousel-nav .carousel-control-prev,
+    .hero-carousel-nav .carousel-control-next {
+      position: static;
+      pointer-events: auto;
+      inset: auto;
+      opacity: 1;
+      transform: none;
+      flex: 0 0 auto;
       width: 46px;
       height: 46px;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 1;
-      z-index: 5;
       border: none;
       border-radius: 50%;
-      background: rgba(10, 61, 110, 0.82);
+      background: rgba(10, 61, 110, 0.88);
       transition: background 0.2s;
     }
-    .hero-carousel .carousel-control-prev:hover,
-    .hero-carousel .carousel-control-next:hover {
+    .hero-carousel-nav .carousel-control-prev:hover,
+    .hero-carousel-nav .carousel-control-next:hover {
       background: var(--hq-accent);
     }
-    @media (min-width: 992px) {
-      .hero-carousel .carousel-control-prev {
-        left: 4px;
-        right: auto;
-      }
-      .hero-carousel .carousel-control-next {
-        right: max(16px, calc((100% - 1320px) / 2 + 12px));
-        left: auto;
-      }
-    }
-    .hero-carousel .carousel-control-prev-icon,
-    .hero-carousel .carousel-control-next-icon {
+    .hero-carousel-nav .carousel-control-prev-icon,
+    .hero-carousel-nav .carousel-control-next-icon {
       width: 1.35rem;
       height: 1.35rem;
       filter: none;
+      margin-inline: auto;
     }
     .hero-content {
       padding: 72px 0 40px;
@@ -206,6 +230,7 @@
       font-weight: 700;
       line-height: 1.1;
       margin-bottom: 0;
+      overflow-wrap: anywhere;
     }
     .hero-title .brand { color: var(--hq-navy); }
     .hero-title .uk { color: #1a7fd4; }
@@ -230,6 +255,7 @@
       line-height: 1.65;
       max-width: 420px;
       margin-bottom: 28px;
+      overflow-wrap: anywhere;
     }
     .btn-hero-primary {
       background: #1a7fd4;
@@ -726,13 +752,13 @@
 
     @media (max-width: 991px) {
       .hero-section {
-        padding: 0 1.25rem 0;
-        overflow: visible;
+        padding-inline: 0;
+        overflow-x: hidden;
       }
       .hero-carousel .carousel-inner,
       .hero-carousel .carousel-item,
       .hero-slide {
-        min-height: auto;
+        min-height: 0;
       }
       .hero-slide {
         display: flex;
@@ -745,7 +771,10 @@
         position: relative;
         order: 2;
         width: 100%;
-        height: clamp(200px, 38vw, 300px);
+        aspect-ratio: 16 / 9;
+        min-height: clamp(180px, 42vw, 300px);
+        height: auto;
+        max-height: 320px;
       }
       .hero-carousel-img {
         object-position: center center;
@@ -753,26 +782,15 @@
       .hero-container {
         order: 1;
         width: 100%;
-        padding-left: 0;
-        padding-right: 0;
       }
       .hero-content {
         max-width: 100%;
         padding: 40px 0 28px;
       }
-      .hero-carousel .carousel-control-prev,
-      .hero-carousel .carousel-control-next {
-        top: auto;
-        bottom: calc(clamp(200px, 38vw, 300px) / 2);
-        transform: translateY(50%);
-      }
-      .hero-carousel .carousel-control-prev {
-        left: 6px;
-        right: auto;
-      }
-      .hero-carousel .carousel-control-next {
-        right: 16px;
-        left: auto;
+      .hero-carousel-nav .carousel-control-prev,
+      .hero-carousel-nav .carousel-control-next {
+        width: 44px;
+        height: 44px;
       }
       .features-wrap .container {
         padding-left: 1.25rem;
@@ -838,13 +856,14 @@
         padding: .75rem 1.25rem;
       }
       .hero-slide-media {
-        height: clamp(180px, 52vw, 260px);
+        aspect-ratio: 16 / 9;
+        min-height: clamp(160px, 48vw, 260px);
+        max-height: 280px;
       }
-      .hero-carousel .carousel-control-prev,
-      .hero-carousel .carousel-control-next {
+      .hero-carousel-nav .carousel-control-prev,
+      .hero-carousel-nav .carousel-control-next {
         width: 40px;
         height: 40px;
-        bottom: calc(clamp(180px, 52vw, 260px) / 2);
       }
       .features-wrap {
         margin-top: -48px;
@@ -866,8 +885,7 @@
     }
     @media (max-width: 575px) {
       .hero-section {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-inline: 0;
       }
       .features-wrap .container {
         padding-left: 1rem;
@@ -887,17 +905,15 @@
         margin-bottom: 18px;
       }
       .hero-slide-media {
-        height: 200px;
+        aspect-ratio: 16 / 9;
+        min-height: 170px;
+        max-height: 220px;
+        height: auto;
       }
-      .hero-carousel .carousel-control-prev,
-      .hero-carousel .carousel-control-next {
-        bottom: 100px;
-        left: 12px;
-        right: auto;
-      }
-      .hero-carousel .carousel-control-next {
-        right: 12px;
-        left: auto;
+      .hero-carousel-nav .carousel-control-prev,
+      .hero-carousel-nav .carousel-control-next {
+        width: 38px;
+        height: 38px;
       }
       .features-wrap {
         margin-top: -36px;
@@ -943,12 +959,6 @@
 
   <section class="hero-section">
     <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover">
-      <button class="carousel-control-prev hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous slide">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </button>
-      <button class="carousel-control-next hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next slide">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </button>
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="hero-slide">
@@ -1019,10 +1029,18 @@
       </div>
     </div>
     <div class="features-wrap">
+      <div class="hero-carousel-nav" role="group" aria-label="Hero banner slides">
+        <button class="carousel-control-prev hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous slide">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next slide">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
       <div class="container">
         <div class="features-bar">
           <div class="row g-0 align-items-stretch">
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-12 col-sm-6 col-lg-3">
               <div class="feature-col">
                 <div class="feature-icon-wrap" aria-hidden="true">
                   <i class="bi bi-award-fill"></i>
@@ -1033,7 +1051,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-12 col-sm-6 col-lg-3">
               <div class="feature-col">
                 <div class="feature-icon-wrap" aria-hidden="true">
                   <i class="bi bi-globe2"></i>
@@ -1044,7 +1062,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-12 col-sm-6 col-lg-3">
               <div class="feature-col">
                 <div class="feature-icon-wrap" aria-hidden="true">
                   <i class="bi bi-people-fill"></i>
@@ -1055,7 +1073,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-12 col-sm-6 col-lg-3">
               <div class="feature-col">
                 <div class="feature-icon-wrap" aria-hidden="true">
                   <i class="bi bi-headset"></i>
